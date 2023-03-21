@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Capitain America",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 10.99
+    },
+    {
+        "id": 2,
+        "title": "Capitain America 2",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 10.99
+    },
+    {
+        "id": 6,
+        "title": "Capitain America 6",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 100.99
+    },
+    {
+        "id": 3,
+        "title": "Capitain America 3",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 12.99
+    },
+    {
+        "id": 4,
+        "title": "Capitain America 4",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 13.99
+    },
+    {
+        "id": 5,
+        "title": "Capitain America 5",
+        "description": "The first avenger",
+        "thumbnailPath": "http://localhost:5173/images/comic_cover.png",
+        "price": 15.99
+    }
+]

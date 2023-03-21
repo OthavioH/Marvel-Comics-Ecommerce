@@ -1,28 +1,38 @@
+import { useState } from "react";
 import {
   FilterButton,
+  FilterBySelect,
   FilterContainer,
   FilterName,
+  FilterRow,
   FilterTitle,
-  Slider,
-  SliderContainer,
 } from "../../styles/StoreFilter.styles";
+import { StoreFilterProps } from "./shared/models/StoreFilterProps";
 
-export default function DesktopStoreFilter() {
+export default function DesktopStoreFilter(props: StoreFilterProps) {
+  const [filterBy, setFilterBy] = useState("ascending");
+
+  function changeFilters() {
+    props.handleFilterChange({ filterBy: filterBy });
+  }
+
+  function handleFilterByChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setFilterBy(event.target.value);
+  }
+
   return (
     <FilterContainer>
       <FilterTitle>FILTERS</FilterTitle>
-      <FilterName>Price:</FilterName>
-      <SliderContainer>
-        <Slider
-          type="range"
-          min="1"
-          max="1000"
-          value="0"
-          id="price-slider"
-          onChange={() => {}}
-        />
-      </SliderContainer>
-      <FilterButton>FILTER</FilterButton>
+      <FilterRow>
+        <FilterName>Filter by:</FilterName>
+        <FilterBySelect onChange={handleFilterByChange}>
+          <option value="ascending">A-Z</option>
+          <option value="descending">Z-A</option>
+          <option value="price-ascending">Price ascending</option>
+          <option value="price-descending">Price descending</option>
+        </FilterBySelect>
+      </FilterRow>
+      <FilterButton onClick={changeFilters}>FILTER</FilterButton>
     </FilterContainer>
   );
 }

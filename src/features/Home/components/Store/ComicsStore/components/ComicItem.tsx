@@ -5,14 +5,18 @@ import {
   ShopComicsTitle,
 } from "../../styles/Store.styles";
 
-import comicCover from "../../../../../../assets/images/comic_cover.png";
+import { Comic } from "../../../../../../shared/models/Comic";
 
-export default function ComicItem() {
+interface ComicItemProps {
+  comic: Comic;
+}
+
+export default function ComicItem(props: ComicItemProps) {
   return (
     <ShopComics>
-      <ShopComicsImage src={comicCover} />
-      <ShopComicsTitle>Capitão América: O Primeiro Vingador</ShopComicsTitle>
-      <ShopComicsPrice>R$299,99</ShopComicsPrice>
+      <ShopComicsImage src={props.comic.thumbnailPath} />
+      <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
+      <ShopComicsPrice>{+props.comic.price}</ShopComicsPrice>
     </ShopComics>
   );
 }

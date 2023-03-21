@@ -6,8 +6,9 @@ import {
   MobileFilterContainer,
 } from "../../styles/StoreFilter.styles";
 import DesktopStoreFilter from "./DesktopStoreFilter";
+import { StoreFilterProps } from "./shared/models/StoreFilterProps";
 
-export default function MobileStoreFilter() {
+export default function MobileStoreFilter(props: StoreFilterProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleFilter() {
@@ -23,7 +24,9 @@ export default function MobileStoreFilter() {
             {isOpen ? "CLOSE" : "OPEN"}
           </MobileFilterButton>
         </MobileFilterColapsible>
-        {isOpen && <DesktopStoreFilter />}
+        {isOpen && (
+          <DesktopStoreFilter handleFilterChange={props.handleFilterChange} />
+        )}
       </MobileFilterContainer>
     </div>
   );

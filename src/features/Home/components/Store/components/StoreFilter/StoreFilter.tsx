@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+
 import DesktopStoreFilter from "./DesktopStoreFilter";
 import MobileStoreFilter from "./MobileStoreFilter";
+import { StoreFilterProps } from "./shared/models/StoreFilterProps";
 
-export default function StoreFilter() {
+export default function StoreFilter(props: StoreFilterProps) {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
@@ -23,8 +25,8 @@ export default function StoreFilter() {
   }
 
   return windowSize.innerWidth < 950 ? (
-    <MobileStoreFilter />
+    <MobileStoreFilter handleFilterChange={props.handleFilterChange} />
   ) : (
-    <DesktopStoreFilter />
+    <DesktopStoreFilter handleFilterChange={props.handleFilterChange} />
   );
 }

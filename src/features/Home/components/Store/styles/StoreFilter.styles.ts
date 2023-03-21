@@ -48,12 +48,6 @@ export const FilterTitle = styled.p`
   letter-spacing: 3px;
 `;
 
-export const SliderContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: fit-content;
-`;
-
 export const FilterName = styled.p`
   font-size: 1.5rem;
   font-weight: 600;
@@ -61,34 +55,30 @@ export const FilterName = styled.p`
   text-align: start;
 `;
 
-export const Slider = styled.input`
-  -webkit-appearance: none;
+export const FilterBySelect = styled.select`
+  width: auto;
+  height: 40px;
+  background-color: #e3e3e1;
+  border: none;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #1a2025;
+  text-align: start;
+`;
+
+export const FilterRow = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 5px;
-  border-radius: 5px;
-  background: #d1d5db;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #04aa6d;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  &::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #04aa6d;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+  height: fit-content;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const MobileFilterContainer = styled.div`
