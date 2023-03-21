@@ -9,7 +9,7 @@ export const StoreSection = styled.section`
   padding: 10px;
   background-color: #181d20;
 
-  @media (max-width: 800px) {
+  @media (max-width: 950px) {
     flex-direction: column;
     justify-content: start;
   }
@@ -24,11 +24,8 @@ export const ShopContainer = styled.div`
   height: fit-content;
   gap: 25px;
 
-  @media (max-width: 800px) {
-    min-width: 100%;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+  @media (max-width: 950px) {
+    justify-content: center;
   }
 `;
 
@@ -37,6 +34,16 @@ export const ShopComics = styled.div`
   flex-direction: column;
   width: 200px;
   height: 450px;
+
+  @media (max-width: 462px) {
+    width: 150px;
+    height: 350px;
+  }
+
+  @media (min-width: 463px) and (max-width: 950px) {
+    width: 200px;
+    height: 450px;
+  }
 
   @media (min-width: 2000px) {
     width: 300px;
