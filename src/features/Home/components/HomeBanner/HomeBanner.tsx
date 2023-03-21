@@ -1,5 +1,4 @@
 import {
-  HeroBanner,
   HeroBannerSection,
   ShopTitle,
   TitleContainer,
@@ -14,7 +13,6 @@ export default function HomeBanner() {
           <TitleText>TOP HQs</TitleText>
         </ShopTitle>
       </TitleContainer>
-      <HeroBanner />
     </HeroBannerSection>
   );
 }

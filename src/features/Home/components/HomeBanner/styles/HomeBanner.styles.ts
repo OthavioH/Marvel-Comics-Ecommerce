@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import homeBG from "../../../../../assets/images/home_banner.png";
+import homeBG from "../../../../../assets/images/home_banner_169.png";
 
 export const HeroBannerSection = styled.section`
   display: flex;
@@ -12,21 +12,24 @@ export const HeroBannerSection = styled.section`
   width: 100%;
   background-color: white;
 
-  background: linear-gradient(to bottom, #181d20, black 100%, #181d20);
-`;
-
-export const HeroBanner = styled.div`
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-  z-index: 2;
-
   background-image: url(${homeBG});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+
+  @media (max-width: 500px) {
+    background-size: 100vw 100%;
+    min-height: 15rem;
+  }
+
+  @media (min-width: 1400px) {
+    background-size: 100% 30vw;
+  }
+
+  @media (min-width: 1600px) {
+    background-image: url(${homeBG});
+    background-size: 100% 85vh;
+  }
 `;
 
 export const TitleContainer = styled.div`
