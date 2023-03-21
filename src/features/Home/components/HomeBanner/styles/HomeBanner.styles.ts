@@ -63,7 +63,7 @@ export const TitleText = styled.p`
   text-shadow: 2px 2px 2px #000000;
 
   @media (max-width: 500px) {
-    font-size: 20px;
+    font-size: 15px;
     padding-top: 10px;
   }
 `;
