@@ -4,7 +4,7 @@ import {
   ShopTitle,
   TitleContainer,
   TitleText,
-} from "../../shared/styles/Home.styles";
+} from "./styles/HomeBanner.styles";
 
 export default function HomeBanner() {
   return (

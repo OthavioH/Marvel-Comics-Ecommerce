@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import homeBG from "../../../../../public/images/home_banner.png";
+import homeBG from "../../../../../../public/images/home_banner.png";
 
 export const HeroBannerSection = styled.section`
   display: flex;
