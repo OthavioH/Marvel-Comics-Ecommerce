@@ -28,7 +28,7 @@ export const HeroBannerSection = styled.section`
 
   @media (min-width: 1600px) {
     background-image: url(${homeBG});
-    background-size: 100% 85vh;
+    background-size: 100% 50vh;
   }
 `;
 
