@@ -19,7 +19,9 @@ export default function MobileStoreFilter() {
       <MobileFilterContainer>
         <MobileFilterColapsible>
           <FilterTitle>Filters</FilterTitle>
-          <MobileFilterButton onClick={toggleFilter}>OPEN</MobileFilterButton>
+          <MobileFilterButton onClick={toggleFilter}>
+            {isOpen ? "CLOSE" : "OPEN"}
+          </MobileFilterButton>
         </MobileFilterColapsible>
         {isOpen && <DesktopStoreFilter />}
       </MobileFilterContainer>
