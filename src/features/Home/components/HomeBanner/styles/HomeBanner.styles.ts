@@ -7,7 +7,7 @@ export const HeroBannerSection = styled.section`
   position: relative;
   z-index: 1;
   flex-direction: column;
-  min-height: 25rem;
+  min-height: 30rem;
   height: 60%;
   width: 100%;
   background-color: white;
@@ -23,10 +23,6 @@ export const HeroBannerSection = styled.section`
   }
 
   @media (min-width: 1400px) {
-    background-size: 100% 30vw;
-  }
-
-  @media (min-width: 1600px) {
     background-image: url(${homeBG});
     background-size: 100% 50vh;
   }
@@ -62,8 +58,16 @@ export const TitleText = styled.p`
   letter-spacing: 3px;
   text-shadow: 2px 2px 2px #000000;
 
-  @media (max-width: 500px) {
-    font-size: 15px;
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 481px) and (max-width: 600px) {
+    font-size: 25px;
     padding-top: 10px;
+  }
+
+  @media (min-width: 601px) and (max-width: 1000px) {
+    font-size: 30px;
   }
 `;

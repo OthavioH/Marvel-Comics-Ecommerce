@@ -8,6 +8,11 @@ export const StoreSection = styled.section`
   gap: 10px;
   padding: 0 10px;
   background-color: #181d20;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: start;
+  }
 `;
 
 export const FilterContainer = styled.div`
@@ -30,6 +35,13 @@ export const ShopContainer = styled.div`
   height: fit-content;
   gap: 25px;
   padding: 10px;
+
+  @media (max-width: 800px) {
+    min-width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 `;
 
 export const ShopComics = styled.div`
@@ -57,7 +69,7 @@ export const ShopComicsTitle = styled.p`
   font-weight: 600;
   color: whitesmoke;
   text-align: center;
-  margin: 10px 0;
+  margin: 2px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
