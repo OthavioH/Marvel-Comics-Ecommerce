@@ -57,9 +57,10 @@ export const ShopTitle = styled.div`
 export const TitleText = styled.p`
   color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   letter-spacing: 3px;
+  text-shadow: 2px 2px 2px #000000;
 
   @media (max-width: 500px) {
     font-size: 20px;
