@@ -4,32 +4,9 @@ import ComicItem from "./components/ComicItem";
 export default function ComicsStore() {
   return (
     <ShopContainer>
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
-      <ComicItem />
+      {Array.from({ length: 10 }).map((_, index) => (
+        <ComicItem key={index} />
+      ))}
     </ShopContainer>
   );
 }

@@ -10,7 +10,7 @@ export default function HomeBanner() {
     <HeroBannerSection>
       <TitleContainer>
         <ShopTitle>
-          <TitleText>Marvel Comics</TitleText>
+          <TitleText>COMICS STORE</TitleText>
         </ShopTitle>
       </TitleContainer>
     </HeroBannerSection>

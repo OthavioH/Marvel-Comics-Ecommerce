@@ -55,8 +55,8 @@ export const TitleText = styled.p`
   text-align: center;
   font-size: 40px;
   font-weight: bold;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 2px #000000;
+  letter-spacing: 6px;
+  padding-top: 5px;
 
   @media (max-width: 480px) {
     font-size: 20px;

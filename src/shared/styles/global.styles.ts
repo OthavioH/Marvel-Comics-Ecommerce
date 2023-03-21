@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        font-family: "Kanit", sans-serif;
+        font-family: "Bebas";
         font-size: 14px;
         background-color: whitesmoke;
         text-rendering: optimizeLegibility;
