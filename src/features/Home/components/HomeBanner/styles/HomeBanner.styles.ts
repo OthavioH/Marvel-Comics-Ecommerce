@@ -1,22 +1,18 @@
 import styled from "styled-components";
 
-import homeBG from "../../../../../../public/images/home_banner.png";
+import homeBG from "../../../../../assets/images/home_banner.png";
 
 export const HeroBannerSection = styled.section`
   display: flex;
   position: relative;
   z-index: 1;
   flex-direction: column;
-  min-height: 50rem;
+  min-height: 25rem;
   height: 60%;
   width: 100%;
   background-color: white;
 
   background: linear-gradient(to bottom, #181d20, black 100%, #181d20);
-
-  @media (min-width: 1400px) {
-    min-height: 55rem;
-  }
 `;
 
 export const HeroBanner = styled.div`
@@ -30,7 +26,7 @@ export const HeroBanner = styled.div`
   background-image: url(${homeBG});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
 `;
 
 export const TitleContainer = styled.div`
