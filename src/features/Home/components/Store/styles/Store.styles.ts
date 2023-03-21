@@ -68,6 +68,10 @@ export const ShopComicsTitle = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (min-width: 1920px) {
+    font-size: 2rem;
+  }
 `;
 
 export const ShopComicsPrice = styled.p`
@@ -76,4 +80,8 @@ export const ShopComicsPrice = styled.p`
   color: whitesmoke;
   text-align: center;
   margin: 10px 0;
+
+  @media (min-width: 1920px) {
+    font-size: 2rem;
+  }
 `;

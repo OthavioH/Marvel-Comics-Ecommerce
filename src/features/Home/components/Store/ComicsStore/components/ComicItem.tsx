@@ -5,18 +5,34 @@ import {
   ShopComicsTitle,
 } from "../../styles/Store.styles";
 
-import { Comic } from "../../../../../../shared/models/Comic";
+import { IComic, IPrice } from "../../../../../../shared/models/IComic";
 
 interface ComicItemProps {
-  comic: Comic;
+  comic: IComic;
 }
 
 export default function ComicItem(props: ComicItemProps) {
+  const price = getPrice(props.comic.prices);
+
+  function getPrice(prices: IPrice[]): IPrice {
+    if (prices[0].price >= 1) return prices[0];
+
+    const price: IPrice[] | IPrice =
+      prices.find((price) => price.price >= 1) || prices[0];
+
+    if (price instanceof Array) {
+      return price[0];
+    }
+    return price;
+  }
+
   return (
     <ShopComics>
-      <ShopComicsImage src={props.comic.thumbnailPath} />
+      <ShopComicsImage
+        src={`${props.comic.thumbnail.path}.${props.comic.thumbnail.extension}`}
+      />
       <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
-      <ShopComicsPrice>{+props.comic.price}</ShopComicsPrice>
+      <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>
     </ShopComics>
   );
 }

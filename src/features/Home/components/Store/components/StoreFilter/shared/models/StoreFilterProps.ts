@@ -1,5 +1,5 @@
-import { Filters } from "../../../../../../../../shared/models/Filters";
+import { IFilters } from "../../../../../../../../shared/models/IFilters";
 
 export interface StoreFilterProps {
-  handleFilterChange: (filters: Filters) => void;
+  handleFilterChange: (filters: IFilters) => void;
 }
