@@ -87,17 +87,16 @@ export const MobileFilterContainer = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  background-color: #1a2025;
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
 `;
 
-export const MobileFilterColapsible = styled.div`
+export const MobileFilterCollapsible = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 60px;
@@ -108,19 +107,12 @@ export const MobileFilterButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 40px;
-  background-color: #e3e3e1;
   border: none;
   border-radius: 4px;
   margin: 10px 0;
-  padding: 0 10px;
+  padding: 10px;
   cursor: pointer;
   transition: 0.3s;
-
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #1a2025;
-  text-align: center;
-  letter-spacing: 1px;
+  background-color: #1a2025;
+  color: whitesmoke;
 `;

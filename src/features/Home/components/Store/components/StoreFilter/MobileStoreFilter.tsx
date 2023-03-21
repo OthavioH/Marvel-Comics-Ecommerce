@@ -2,11 +2,13 @@ import { useState } from "react";
 import {
   FilterTitle,
   MobileFilterButton,
-  MobileFilterColapsible,
+  MobileFilterCollapsible,
   MobileFilterContainer,
 } from "../../styles/StoreFilter.styles";
 import DesktopStoreFilter from "./DesktopStoreFilter";
 import { StoreFilterProps } from "./shared/models/StoreFilterProps";
+
+import { FilterAlt, FilterAltOff } from "@mui/icons-material";
 
 export default function MobileStoreFilter(props: StoreFilterProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,12 +20,15 @@ export default function MobileStoreFilter(props: StoreFilterProps) {
   return (
     <div>
       <MobileFilterContainer>
-        <MobileFilterColapsible>
-          <FilterTitle>Filters</FilterTitle>
+        <MobileFilterCollapsible>
           <MobileFilterButton onClick={toggleFilter}>
-            {isOpen ? "CLOSE" : "OPEN"}
+            {isOpen ? (
+              <FilterAlt fontSize="large" />
+            ) : (
+              <FilterAltOff fontSize="large" />
+            )}
           </MobileFilterButton>
-        </MobileFilterColapsible>
+        </MobileFilterCollapsible>
         {isOpen && (
           <DesktopStoreFilter handleFilterChange={props.handleFilterChange} />
         )}
