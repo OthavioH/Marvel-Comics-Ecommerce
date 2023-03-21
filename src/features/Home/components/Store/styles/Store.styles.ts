@@ -15,7 +15,17 @@ export const StoreSection = styled.section`
   }
 `;
 
-export const ShopContainer = styled.div`
+export const ShopComicsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  min-width: 20rem;
+  height: fit-content;
+  gap: 25px;
+  padding: 10px;
+`;
+
+export const ComicsContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

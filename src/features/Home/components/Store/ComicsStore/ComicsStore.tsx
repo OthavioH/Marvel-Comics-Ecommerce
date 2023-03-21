@@ -3,7 +3,8 @@ import { IComic } from "../../../../../shared/models/IComic";
 import { IFilters } from "../../../../../shared/models/IFilters";
 import { removeComicsWithoutPrice } from "../../../../../shared/utils/utils";
 import ComicService from "../../../services/ComicService";
-import { ShopContainer } from "../styles/Store.styles";
+import Paginator from "../components/Paginator/Paginator";
+import { ComicsContainer, ShopComicsContainer } from "../styles/Store.styles";
 import ComicItem from "./components/ComicItem";
 
 interface ComicsStoreProps {
@@ -23,12 +24,23 @@ export default function ComicsStore(props: ComicsStoreProps) {
   }, [props.filters]);
 
   return (
-    <ShopContainer>
-      {filterComics().map((comic) => (
-        <ComicItem comic={comic} key={comic.id} />
-      ))}
-    </ShopContainer>
+    <ShopComicsContainer>
+      <Paginator
+        totalPages={5}
+        currentPage={1}
+        onPageChange={handlePageChange}
+      />
+      <ComicsContainer>
+        {filterComics().map((comic) => (
+          <ComicItem comic={comic} key={comic.id} />
+        ))}
+      </ComicsContainer>
+    </ShopComicsContainer>
   );
+
+  function handlePageChange(page: number) {
+    console.log(`Switching to page ${page}`);
+  }
 
   function filterComics() {
     const { filterBy } = props.filters;
