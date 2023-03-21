@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import kanitWoff2Regular300Woff2 from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-300.woff2";
 import kanitWoff2RegularWoff2 from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-regular.woff2";
-import kanitWoff2Regular600Woff2 from "../assets/../fonts/kanit-v12-latin/kanit-v12-latin-600.woff2";
-import kanitWoff2Regular800Woff2 from "../assets/../fonts/kanit-v12-latin/kanit-v12-latin-800.woff2";
+import kanitWoff2Regular600Woff2 from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-600.woff2";
+import kanitWoff2Regular800Woff2 from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-800.woff2";
 
-import kanitWoff2Regular300Woff from "../assets/../fonts/kanit-v12-latin/kanit-v12-latin-300.woff";
+import kanitWoff2Regular300Woff from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-300.woff";
 import kanitWoff2RegularWoff from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-regular.woff";
 import kanitWoff2Regular600Woff from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-600.woff";
 import kanitWoff2Regular800Woff from "../../assets/fonts/kanit-v12-latin/kanit-v12-latin-800.woff";
