@@ -8,9 +8,7 @@ import {
   PageState,
   Success,
 } from "../../../../../shared/models/PageState";
-import ComicService from "../../../services/ComicService";
-import LoadingComponent from "../../Loading/LoadingComponent";
-import Paginator from "../components/Paginator/Paginator";
+import ComicService from "../../../../../shared/services/ComicService";
 import { ComicsContainer, ShopComicsContainer } from "../styles/Store.styles";
 import ComicItem from "./components/ComicItem";
 import LoadingComicsStore from "./components/LoadingComicsStore";

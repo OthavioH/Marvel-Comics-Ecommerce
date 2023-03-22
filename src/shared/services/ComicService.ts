@@ -1,10 +1,24 @@
-import { api } from "../../../config/axios";
-import { IGetComicsResponse } from "../../../shared/models/IGetComicsResponse";
+import { api } from "../../config/axios";
+import { IGetComicsResponse } from "../models/IGetComicsResponse";
 import { MD5 } from "crypto-js";
-import { removeComicsWithoutPrice } from "../../../shared/utils/utils";
-import { IComic } from "../../../shared/models/IComic";
+import { removeComicsWithoutPrice } from "../utils/utils";
+import { IComic } from "../models/IComic";
 
 export default class ComicService {
+  public async getComicById(id: number): Promise<IComic | void> {
+    const apikey = import.meta.env.VITE_APIKEY;
+    const privateApiKey = import.meta.env.VITE_PRIVATE_APIKEY;
+    const timestamp = new Date().getTime();
+
+    const hash = MD5(timestamp + privateApiKey + apikey).toString();
+
+    const response = await api.get(
+      `/v1/public/comics/${id}?ts=${timestamp}&apikey=${apikey}&hash=${hash}`
+    );
+
+    console.log(response.data);
+  }
+
   public async getAllComics(page: number, limit?: number): Promise<IComic[]> {
     const defaultLimit = limit ?? 10;
 
