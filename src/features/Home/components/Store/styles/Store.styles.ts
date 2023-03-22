@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 export const StoreSection = styled.section`
@@ -40,11 +41,18 @@ export const ComicsContainer = styled.div`
   }
 `;
 
+export const ShopComicsStyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
 export const ShopComics = styled.div`
   display: flex;
   flex-direction: column;
   width: 200px;
   height: 450px;
+  color: whitesmoke;
+  text-decoration: none;
 
   @media (max-width: 462px) {
     width: 150px;

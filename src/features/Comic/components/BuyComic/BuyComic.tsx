@@ -9,9 +9,15 @@ import { AddShoppingCart } from "@mui/icons-material";
 
 interface Props {
   comicPrice: number;
+  handleChangeQuantity: (quantity: number) => void;
+  addToCart: () => void;
 }
 
-export default function BuyComic({ comicPrice }: Props) {
+export default function BuyComic({
+  comicPrice,
+  handleChangeQuantity,
+  addToCart,
+}: Props) {
   const defaultPrice = comicPrice;
   const [price, setPrice] = useState(defaultPrice);
 
@@ -20,7 +26,7 @@ export default function BuyComic({ comicPrice }: Props) {
       <BuyComicContainer>
         <BuyQuantity handleChangePrice={handleChangePrice} />
         <BuyComicPrice>${price.toFixed(2)}</BuyComicPrice>
-        <BuyComicButton>
+        <BuyComicButton onClick={addToCart}>
           <AddShoppingCart fontSize="large" />
         </BuyComicButton>
       </BuyComicContainer>
@@ -28,6 +34,7 @@ export default function BuyComic({ comicPrice }: Props) {
   );
 
   function handleChangePrice(quantity: number) {
+    handleChangeQuantity(quantity);
     setPrice(quantity * defaultPrice);
   }
 }

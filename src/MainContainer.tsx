@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Cart } from "./features/Cart/Cart";
+import Cart from "./features/Cart/Cart";
 import { CartWrapper } from "./features/Cart/styles/Cart.style";
 import Nav from "./features/Nav/Nav";
 import Router from "./routes/router";

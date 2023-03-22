@@ -66,8 +66,6 @@ export default class ComicService {
       `v1/public/comics/${id}/stories?ts=${this.timestamp}&apikey=${this.apikey}&hash=${this.hash}&orderBy=modified`
     );
 
-    console.log(response.data);
-
     const bodyData = response.data as IGetComicSeriesResponse;
     const series = bodyData.data.results;
 

@@ -2,12 +2,7 @@ export interface ICartComic {
   id: number;
   title: string;
   description: string;
-  thumbnail: IThumbnail;
+  thumbnailUrl?: string;
   price: number;
   quantity: number;
-}
-
-interface IThumbnail {
-  path: string;
-  extension: string;
 }

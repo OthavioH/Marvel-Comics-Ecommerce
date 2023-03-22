@@ -6,14 +6,19 @@ import {
 } from "../../styles/Comic.styles";
 import BuyComic from "../BuyComic/BuyComic";
 
-import placeholderImg from "../../../../assets/images/comic_placeholder.png";
 import { getImageUrl } from "../../../../shared/utils/utils";
 
 interface Props {
   comic?: IComic;
+  handleChangeQuantity: (quantity: number) => void;
+  addToCart: () => void;
 }
 
-export default function ComicFirstSection({ comic }: Props) {
+export default function ComicFirstSection({
+  comic,
+  handleChangeQuantity,
+  addToCart,
+}: Props) {
   return (
     <ComicInfoColumn>
       <ComicTitle>{comic?.title}</ComicTitle>
@@ -22,7 +27,11 @@ export default function ComicFirstSection({ comic }: Props) {
           `${comic?.thumbnail.path}.${comic?.thumbnail.extension}`
         )}
       />
-      <BuyComic comicPrice={comic?.prices[0].price || 0}></BuyComic>
+      <BuyComic
+        comicPrice={comic?.prices[0].price || 0}
+        handleChangeQuantity={handleChangeQuantity}
+        addToCart={addToCart}
+      ></BuyComic>
     </ComicInfoColumn>
   );
 }

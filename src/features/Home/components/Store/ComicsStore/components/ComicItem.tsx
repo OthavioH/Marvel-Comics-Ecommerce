@@ -2,11 +2,11 @@ import {
   ShopComics,
   ShopComicsImage,
   ShopComicsPrice,
+  ShopComicsStyledLink,
   ShopComicsTitle,
 } from "../../styles/Store.styles";
 
 import { IComic, IPrice } from "../../../../../../shared/models/IComic";
-import { Link } from "react-router-dom";
 import { getImageUrl } from "../../../../../../shared/utils/utils";
 
 interface ComicItemProps {
@@ -29,7 +29,7 @@ export default function ComicItem(props: ComicItemProps) {
   }
 
   return (
-    <Link to={`comic/${props.comic.id}`}>
+    <ShopComicsStyledLink to={`comic/${props.comic.id}`}>
       <ShopComics>
         <ShopComicsImage
           src={getImageUrl(
@@ -39,6 +39,6 @@ export default function ComicItem(props: ComicItemProps) {
         <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
         <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>
       </ShopComics>
-    </Link>
+    </ShopComicsStyledLink>
   );
 }

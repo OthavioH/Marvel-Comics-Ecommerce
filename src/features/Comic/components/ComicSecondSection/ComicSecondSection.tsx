@@ -38,11 +38,10 @@ export default function ComicSecondSection({ comic }: Props) {
   );
 
   async function getComicSeries() {
-    comicService
+    await comicService
       .getComicSeries(comic!.id)
       .then((series) => {
         setComicSeries(series);
-        console.log(series);
       })
       .catch((err) => {
         console.log(err);

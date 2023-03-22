@@ -17,7 +17,7 @@ export default function ComicStories({ series }: Props) {
     <ComicStoriesContainer>
       {series?.map((story) => {
         return (
-          <ComicStory>
+          <ComicStory key={story.id}>
             <ComicStoryImage
               src={`${
                 story.thumbnail

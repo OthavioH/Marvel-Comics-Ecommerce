@@ -130,6 +130,107 @@ export const CartList = styled.div`
   gap: 20px;
 `;
 
+export const CartComic = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: fit-content;
+  min-height: 70px;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #cccec7;
+`;
+
+export const CartComicColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+  gap: 5px;
+`;
+
+export const CartComicRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  gap: 5px;
+`;
+
+export const CartComicTitle = styled.div`
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+export const CartComicQuantity = styled.div`
+  width: fit-content;
+  padding: 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+export const CartComicQuantityButton = styled.button`
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+  }
+`;
+
+export const CartComicPrice = styled.div`
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+`;
+
+export const CartComicImage = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+`;
+
 export const CartTotal = styled.div`
   width: 100%;
   font-size: 26px;

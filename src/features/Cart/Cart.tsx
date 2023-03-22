@@ -1,37 +1,75 @@
+import { useEffect, useState } from "react";
+
 import {
   CartClearButton,
-  CartClose,
-  CartCloseIcon,
   CartContainer,
   CartFinishButton,
   CartList,
-  CartRow,
-  CartTitle,
   CartTotal,
 } from "./styles/Cart.style";
 
-import { Close } from "@mui/icons-material";
+import { ICart } from "../../shared/models/ICart";
+import CartComicItem from "./components/CartComicItem";
+import CartHeader from "./components/CartHeader";
+import EmptyCart from "./components/EmptyCart";
+import CartService from "./services/CartService";
+import CartFooter from "./components/CartFooter";
 
-export interface Props {
+interface Props {
   isOpen: boolean;
   handleCloseCart: () => void;
 }
 
-export function Cart({ isOpen, handleCloseCart }: Props) {
+export default function Cart({ isOpen, handleCloseCart }: Props) {
+  const [cart, setCart] = useState<ICart>({
+    comics: [],
+    total: 0,
+    totalQuantity: 0,
+  });
+
+  const cartService = new CartService();
+
+  useEffect(() => {
+    getCart();
+  }, [isOpen]);
+
   return (
     <CartContainer className={isOpen ? "active" : ""}>
-      <CartRow>
-        <CartTitle>Cart</CartTitle>
-        <CartClose>
-          <CartCloseIcon onClick={handleCloseCart} className="spin">
-            <Close fontSize="medium" />
-          </CartCloseIcon>
-        </CartClose>
-      </CartRow>
-      <CartList></CartList>
-      <CartTotal>Total: $9,99</CartTotal>
-      <CartFinishButton>Finish</CartFinishButton>
-      <CartClearButton>Clear</CartClearButton>
+      <CartHeader handleCloseCart={handleCloseCart} />
+      {cart.totalQuantity > 0 ? (
+        <>
+          <CartList>
+            {cart.comics.map((comic) => {
+              return <CartComicItem comic={comic} key={comic.id} />;
+            })}
+          </CartList>
+          <CartFooter
+            cart={cart}
+            clearCart={clearCart}
+            finishCart={finishCart}
+          />
+        </>
+      ) : (
+        <EmptyCart />
+      )}
     </CartContainer>
   );
+
+  function finishCart() {
+    cartService.finishCart().then(() => {
+      getCart();
+    });
+  }
+
+  function clearCart() {
+    cartService.clearCart().then(() => {
+      getCart();
+    });
+  }
+
+  function getCart() {
+    cartService.getCart().then((cart) => {
+      setCart(cart);
+    });
+  }
 }
