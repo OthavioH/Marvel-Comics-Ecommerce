@@ -17,13 +17,9 @@ export default class ComicService {
     const hash = MD5(timestamp + privateApiKey + apikey).toString();
 
     const response = await api.get(
-      `/v1/public/comics?format=comic&formatType=digital comic&noVariants=true&hasDigitalIssue=false&ts=${timestamp}&apikey=${apikey}&hash=${hash}`,
-      {
-        params: {
-          limit: defaultLimit,
-          offset: 10 * (page - 1),
-        },
-      }
+      `/v1/public/comics?format=comic&formatType=digital comic&noVariants=true&hasDigitalIssue=false&limit=${actualLimit}&offset=${
+        10 * (page - 1)
+      }&ts=${timestamp}&apikey=${apikey}&hash=${hash}`
     );
 
     const bodyData = response.data as IGetComicsResponse;

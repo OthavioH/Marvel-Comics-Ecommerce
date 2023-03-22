@@ -36,6 +36,7 @@ export const ComicsContainer = styled.div`
 
   @media (max-width: 950px) {
     justify-content: center;
+    gap: 10px;
   }
 `;
 

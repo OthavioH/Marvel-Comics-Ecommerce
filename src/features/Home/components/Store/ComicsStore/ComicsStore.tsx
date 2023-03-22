@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { IComic } from "../../../../../shared/models/IComic";
 import { IFilters } from "../../../../../shared/models/IFilters";
-import { removeComicsWithoutPrice } from "../../../../../shared/utils/utils";
+import {
+  Loading,
+  PageState,
+  Success,
+} from "../../../../../shared/models/PageState";
 import ComicService from "../../../services/ComicService";
+import LoadingComponent from "../../Loading/LoadingComponent";
 import Paginator from "../components/Paginator/Paginator";
 import { ComicsContainer, ShopComicsContainer } from "../styles/Store.styles";
 import ComicItem from "./components/ComicItem";
@@ -12,22 +18,27 @@ interface ComicsStoreProps {
 }
 
 export default function ComicsStore(props: ComicsStoreProps) {
+  const [pageState, setPageState] = useState<PageState>(new Loading());
   const [comics, setComics] = useState<IComic[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
+  const navigate = useNavigate();
   const comicService = new ComicService();
+  const location = useLocation();
 
   useEffect(() => {
-    comicService
-      .getAllComics(1)
-      .then((comics) => setComics(comics))
-      .catch((err) => console.log(err));
+    initCurrentPage();
   }, [props.filters]);
+
+  if (pageState instanceof Loading) {
+    return <LoadingComponent />;
+  }
 
   return (
     <ShopComicsContainer>
       <Paginator
-        totalPages={5}
-        currentPage={1}
+        totalPages={10}
+        currentPage={currentPage}
         onPageChange={handlePageChange}
       />
       <ComicsContainer>
@@ -38,8 +49,27 @@ export default function ComicsStore(props: ComicsStoreProps) {
     </ShopComicsContainer>
   );
 
+  async function initCurrentPage() {
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get("page") || "1";
+
+    setCurrentPage(+page);
+    getComics();
+  }
+
+  function getComics() {
+    comicService
+      .getAllComics(currentPage)
+      .then((comics) => {
+        setComics(comics);
+        setPageState(new Success());
+      })
+      .catch((err) => console.log(err));
+  }
+
   function handlePageChange(page: number) {
-    console.log(`Switching to page ${page}`);
+    setPageState(new Loading());
+    navigate(`?page=${page}`);
   }
 
   function filterComics() {

@@ -15,7 +15,7 @@ export const PageNumber = styled.button<{ active: boolean }>`
   background-color: ${({ active }) => (active ? "#0b0d0f" : "transparent")};
   color: whitesmoke;
   border: none;
-  border-radius: 100%;
+  border-radius: 20%;
   cursor: pointer;
   font-size: 2rem;
 `;
@@ -25,7 +25,7 @@ export const PaginatorButton = styled.button<{ disabled: boolean }>`
   background-color: #e3e2e1;
   color: #000;
   border: none;
-  border-radius: 100%;
+  border-radius: 20%;
   font-weight: bold;
   cursor: pointer;
   &:disabled {
