@@ -1,7 +1,9 @@
 import { useState } from "react";
 import {
   PageNumber,
+  PageNumberContainer,
   PaginatorButton,
+  PaginatorButtonContainer,
   PaginatorContainer,
 } from "../../styles/Paginator.style";
 
@@ -40,19 +42,21 @@ export default function Paginator({
 
   return (
     <PaginatorContainer>
-      {pageNumbers}
-      <PaginatorButton
-        disabled={page === 1}
-        onClick={() => handlePageChange(page - 1)}
-      >
-        <ChevronLeft fontSize="large" />
-      </PaginatorButton>
-      <PaginatorButton
-        disabled={page === totalPages}
-        onClick={() => handlePageChange(page + 1)}
-      >
-        <ChevronRight fontSize="large" />
-      </PaginatorButton>
+      <PageNumberContainer>{pageNumbers}</PageNumberContainer>
+      <PaginatorButtonContainer>
+        <PaginatorButton
+          disabled={page === 1}
+          onClick={() => handlePageChange(page - 1)}
+        >
+          <ChevronLeft fontSize="large" />
+        </PaginatorButton>
+        <PaginatorButton
+          disabled={page === totalPages}
+          onClick={() => handlePageChange(page + 1)}
+        >
+          <ChevronRight fontSize="large" />
+        </PaginatorButton>
+      </PaginatorButtonContainer>
     </PaginatorContainer>
   );
 }

@@ -8,6 +8,38 @@ export const PaginatorContainer = styled.div`
   width: 100%;
   background-color: #181d20;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const PaginatorButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 10px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 5px;
+  }
+`;
+
+export const PageNumberContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 10px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 0;
+  }
 `;
 
 export const PageNumber = styled.button<{ active: boolean }>`
@@ -20,6 +52,12 @@ export const PageNumber = styled.button<{ active: boolean }>`
   border-radius: 20%;
   cursor: pointer;
   font-size: 2rem;
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
 `;
 
 export const PaginatorButton = styled.button<{ disabled: boolean }>`
