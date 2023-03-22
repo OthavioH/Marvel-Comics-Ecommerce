@@ -28,23 +28,15 @@ export default function Cart({ isOpen, handleCloseCart }: Props) {
     totalQuantity: 0,
   });
 
-  const [subscription, setSubscription] = useState<Subscription>();
-
   const cartService = new CartService();
 
   useEffect(() => {
-    const sub = cartService.getCart().subscribe((cart) => {
+    const subscription = cartService.getCart().subscribe((cart) => {
       setCart(cart);
     });
 
-    setSubscription(sub);
-
-    return () => {
-      if (subscription) {
-        sub.unsubscribe();
-      }
-    };
-  }, [cart]);
+    return () => subscription.unsubscribe();
+  }, [cartService.hasCartBeenUpdated]);
 
   return (
     <CartContainer className={isOpen ? "active" : ""}>

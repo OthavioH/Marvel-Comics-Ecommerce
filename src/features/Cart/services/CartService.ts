@@ -1,5 +1,6 @@
 import { Observable } from "rxjs";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { Subscription } from "rxjs/internal/Subscription";
 import { ICart } from "../../../shared/models/ICart";
 import { ICartComic } from "../../../shared/models/ICartComic";
 import { IComic } from "../../../shared/models/IComic";
@@ -7,9 +8,14 @@ import { IComic } from "../../../shared/models/IComic";
 export default class CartService {
   private actualCart: ICart = { comics: [], totalQuantity: 0, total: 0 };
   private cartSubject = new BehaviorSubject<ICart>(this.actualCart);
+  private subscription: Subscription;
+  hasCartBeenUpdated = false;
 
   constructor() {
-    const subscription = this.getCart().subscribe((cart) => {
+    this.subscription = this.getCart().subscribe((cart) => {
+      if (!this.hasCartBeenUpdated) {
+        this.hasCartBeenUpdated = true;
+      }
       this.actualCart = cart;
     });
   }
@@ -128,6 +134,7 @@ export default class CartService {
   async clearCart() {
     this.actualCart = { comics: [], totalQuantity: 0, total: 0 };
     await this.saveCart(this.actualCart);
+    this.subscription.unsubscribe();
   }
 
   getCart(): Observable<ICart> {

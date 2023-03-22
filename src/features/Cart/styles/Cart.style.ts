@@ -30,7 +30,7 @@ export const CartContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 300px;
+  width: 100%;
   padding: 20px;
 
   background-color: #181d20;
@@ -171,8 +171,6 @@ export const CartComicTitle = styled.div`
   letter-spacing: 1px;
   color: #000;
   text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 
   @media (max-width: 768px) {
     font-size: 14px;

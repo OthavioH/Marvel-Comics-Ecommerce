@@ -15,7 +15,7 @@ import { Add, Remove, Delete } from "@mui/icons-material";
 import placeholderImage from "../../../assets/images/comic_placeholder.png";
 import { ICartComic } from "../../../shared/models/ICartComic";
 import CartService from "../services/CartService";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   comic: ICartComic;
