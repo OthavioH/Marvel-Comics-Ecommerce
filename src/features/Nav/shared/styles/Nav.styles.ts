@@ -9,6 +9,8 @@ export const Navigator = styled.nav`
 `;
 
 export const NavPageMain = styled.ul`
+  display: flex;
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -36,5 +38,22 @@ export const NavPageComponent = styled.li`
 
   &:hover:not(.active) {
     background-color: rgb(45, 53, 57);
+  }
+`;
+
+export const NavOpenCartButton = styled.button`
+  display: inline;
+  float: right;
+  width: 100px;
+  height: 50px;
+  margin: 16px 0px 2px 0px;
+  padding: 8px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #000;
   }
 `;

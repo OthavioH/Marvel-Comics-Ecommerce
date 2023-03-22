@@ -1,11 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
 import {
   Navigator,
+  NavOpenCartButton,
   NavPageComponent,
   NavPageMain,
 } from "./shared/styles/Nav.styles";
 
-export default function Nav() {
+import { ShoppingCart } from "@mui/icons-material";
+
+interface Props {
+  isCartOpen: boolean;
+  handleOpenCart: () => void;
+}
+
+export default function Nav({ isCartOpen, handleOpenCart }: Props) {
   const location = useLocation();
   const isStore = location.pathname === "/store";
 
@@ -19,6 +27,9 @@ export default function Nav() {
         </Link>
         <NavPageComponent>HQs</NavPageComponent>
       </NavPageMain>
+      <NavOpenCartButton onClick={handleOpenCart}>
+        <ShoppingCart fontSize="large" />
+      </NavOpenCartButton>
     </Navigator>
   );
 }
