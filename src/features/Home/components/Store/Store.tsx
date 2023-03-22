@@ -2,20 +2,48 @@ import { StoreSection } from "./styles/Store.styles";
 import ComicsStore from "./ComicsStore/ComicsStore";
 import StoreFilter from "./components/StoreFilter/StoreFilter";
 import { IFilters } from "../../../../shared/models/IFilters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Paginator from "./components/Paginator/Paginator";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Store() {
   const [filters, setFilters] = useState<IFilters>({ filterBy: "ascending" });
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    initCurrentPage();
+  }, [currentPage]);
+
+  return (
+    <>
+      <Paginator
+        totalPages={10}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
+      <StoreSection>
+        <StoreFilter handleFilterChange={handleFilterChange} />
+        <ComicsStore filters={filters} currentPage={currentPage} />
+      </StoreSection>
+    </>
+  );
 
   function handleFilterChange(updatedFilters: IFilters) {
     setFilters(updatedFilters);
   }
 
-  return (
-    <StoreSection>
-      <StoreFilter handleFilterChange={handleFilterChange} />
-      <ComicsStore filters={filters} />
-    </StoreSection>
-  );
+  async function initCurrentPage() {
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get("page") || "1";
+
+    setCurrentPage(+page);
+  }
+
+  function handlePageChange(page: number) {
+    setCurrentPage(page);
+    navigate(`?page=${page}`);
+  }
 }

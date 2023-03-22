@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { IComic } from "../../../../../shared/models/IComic";
 import { IFilters } from "../../../../../shared/models/IFilters";
 import {
+  Error,
   Loading,
   PageState,
   Success,
@@ -12,64 +13,46 @@ import LoadingComponent from "../../Loading/LoadingComponent";
 import Paginator from "../components/Paginator/Paginator";
 import { ComicsContainer, ShopComicsContainer } from "../styles/Store.styles";
 import ComicItem from "./components/ComicItem";
+import LoadingComicsStore from "./components/LoadingComicsStore";
 
 interface ComicsStoreProps {
   filters: IFilters;
+  currentPage: number;
 }
 
 export default function ComicsStore(props: ComicsStoreProps) {
   const [pageState, setPageState] = useState<PageState>(new Loading());
   const [comics, setComics] = useState<IComic[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const navigate = useNavigate();
   const comicService = new ComicService();
-  const location = useLocation();
 
   useEffect(() => {
-    initCurrentPage();
-  }, [props.filters]);
-
-  if (pageState instanceof Loading) {
-    return <LoadingComponent />;
-  }
+    getComics(props.currentPage);
+  }, [props.currentPage]);
 
   return (
     <ShopComicsContainer>
-      <Paginator
-        totalPages={10}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-      <ComicsContainer>
-        {filterComics().map((comic) => (
-          <ComicItem comic={comic} key={comic.id} />
-        ))}
-      </ComicsContainer>
+      {pageState instanceof Loading ? (
+        <LoadingComicsStore />
+      ) : (
+        <ComicsContainer>
+          {filterComics().map((comic) => (
+            <ComicItem key={comic.id} comic={comic} />
+          ))}
+        </ComicsContainer>
+      )}
     </ShopComicsContainer>
   );
 
-  async function initCurrentPage() {
-    const queryParams = new URLSearchParams(location.search);
-    const page = queryParams.get("page") || "1";
-
-    setCurrentPage(+page);
-    getComics();
-  }
-
-  function getComics() {
+  function getComics(page: number) {
+    setPageState(new Loading());
     comicService
-      .getAllComics(currentPage)
+      .getAllComics(page)
       .then((comics) => {
         setComics(comics);
         setPageState(new Success());
       })
       .catch((err) => console.log(err));
-  }
-
-  function handlePageChange(page: number) {
-    setPageState(new Loading());
-    navigate(`?page=${page}`);
   }
 
   function filterComics() {

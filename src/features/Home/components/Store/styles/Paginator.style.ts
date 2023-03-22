@@ -6,6 +6,8 @@ export const PaginatorContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: #181d20;
+  padding: 10px;
 `;
 
 export const PageNumber = styled.button<{ active: boolean }>`

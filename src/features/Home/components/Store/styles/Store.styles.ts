@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const StoreSection = styled.section`
   display: flex;
@@ -68,6 +68,26 @@ export const ShopComicsImage = styled.img`
   background-color: #0b0d0f;
   border-radius: 10px;
   object-fit: cover;
+`;
+
+const shine = keyframes`
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+export const LoadingShopComicsImage = styled.img`
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  content: "";
+  width: 100%;
+  height: 200%;
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: ${shine} 1s linear infinite;
 `;
 
 export const ShopComicsTitle = styled.p`
