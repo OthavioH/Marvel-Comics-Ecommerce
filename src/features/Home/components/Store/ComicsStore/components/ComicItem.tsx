@@ -7,6 +7,7 @@ import {
 
 import { IComic, IPrice } from "../../../../../../shared/models/IComic";
 import { Link } from "react-router-dom";
+import { getImageUrl } from "../../../../../../shared/utils/utils";
 
 interface ComicItemProps {
   comic: IComic;
@@ -31,7 +32,9 @@ export default function ComicItem(props: ComicItemProps) {
     <Link to={`comic/${props.comic.id}`}>
       <ShopComics>
         <ShopComicsImage
-          src={`${props.comic.thumbnail.path}.${props.comic.thumbnail.extension}`}
+          src={getImageUrl(
+            `${props.comic.thumbnail.path}.${props.comic.thumbnail.extension}`
+          )}
         />
         <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
         <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>

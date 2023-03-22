@@ -1,6 +1,6 @@
-import { IComic } from "./IComic";
+import { IStory } from "./IStory";
 
-export interface IGetComicsResponse {
+export interface IGetComicSeriesResponse {
   code: number;
   status: string;
   attributionText: string;
@@ -11,7 +11,7 @@ export interface IGetComicsResponse {
     limit: number;
     total: number;
     count: number;
-    results: IComic[];
+    results: IStory[];
   };
   copyright: string;
 }

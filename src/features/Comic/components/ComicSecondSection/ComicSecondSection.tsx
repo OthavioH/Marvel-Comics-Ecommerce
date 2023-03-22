@@ -1,26 +1,51 @@
+import { useEffect, useState } from "react";
 import { IComic } from "../../../../shared/models/IComic";
+import { IStory } from "../../../../shared/models/IStory";
+import ComicService from "../../../../shared/services/ComicService";
 import {
   ComicDescription,
   ComicDescriptionColumn,
   SectionTitle,
 } from "../../styles/Comic.styles";
+import ComicStories from "../ComicStories/ComicStories";
 
 interface Props {
   comic?: IComic;
 }
 
 export default function ComicSecondSection({ comic }: Props) {
+  const [comicSeries, setComicSeries] = useState<IStory[]>([]);
+
+  const comicService = new ComicService();
+
+  useEffect(() => {
+    getComicSeries();
+  }, []);
+
   return (
     <>
-      <ComicDescriptionColumn>
-        <SectionTitle>FROM {comic?.series.name} SERIES</SectionTitle>
-      </ComicDescriptionColumn>
       {comic?.description && (
         <ComicDescriptionColumn>
           <SectionTitle>Description</SectionTitle>
           <ComicDescription>{comic?.description}</ComicDescription>
         </ComicDescriptionColumn>
       )}
+      <ComicDescriptionColumn>
+        <SectionTitle>FROM {comic?.series.name} SERIES</SectionTitle>
+        <ComicStories series={comicSeries} />
+      </ComicDescriptionColumn>
     </>
   );
+
+  async function getComicSeries() {
+    comicService
+      .getComicSeries(comic!.id)
+      .then((series) => {
+        setComicSeries(series);
+        console.log(series);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }

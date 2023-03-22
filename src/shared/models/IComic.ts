@@ -56,7 +56,7 @@ export interface IPrice {
   price: number;
 }
 
-interface IThumbnail {
+export interface IThumbnail {
   path: string;
   extension: string;
 }
@@ -72,14 +72,14 @@ interface IItem {
   type?: string;
 }
 
-interface ICreator {
+export interface ICreator {
   available: number;
   collectionURI: string;
   items: IItem[];
   returned: number;
 }
 
-interface ICharacter {
+export interface ICharacter {
   available: number;
   collectionURI: string;
   items: IItem[];

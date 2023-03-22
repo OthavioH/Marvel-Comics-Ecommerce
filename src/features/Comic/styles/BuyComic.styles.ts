@@ -89,3 +89,49 @@ export const BuyQuantityButtonHover = styled(BuyQuantityButton)`
     box-shadow: 0 0 0 2px #b0443d;
   }
 `;
+
+export const ComicStoriesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+`;
+
+export const ComicStory = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
+  height: 250px;
+  padding: 10px;
+  gap: 10px;
+`;
+
+export const ComicStoryImage = styled.img`
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 2px #b0443d;
+  }
+`;
+
+export const ComicStoryTitle = styled.div`
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
