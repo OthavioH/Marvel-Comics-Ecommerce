@@ -9,7 +9,7 @@ import {
 export default function LoadingComicsStore() {
   return (
     <ComicsContainer>
-      {[...Array(4)].map((_, index) => (
+      {[...Array(10)].map((_, index) => (
         <ShopComics key={index}>
           <LoadingShopComicsImage />
         </ShopComics>
