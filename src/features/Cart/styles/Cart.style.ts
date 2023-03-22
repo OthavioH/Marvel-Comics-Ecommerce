@@ -216,6 +216,32 @@ export const CartComicQuantityButton = styled.button`
   }
 `;
 
+export const CartComicRemoveComic = styled.div`
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: darkred;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+  }
+`;
+
 export const CartComicPrice = styled.div`
   width: 100%;
   font-size: 14px;

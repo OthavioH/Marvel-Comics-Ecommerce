@@ -14,6 +14,7 @@ import CartHeader from "./components/CartHeader";
 import EmptyCart from "./components/EmptyCart";
 import CartService from "./services/CartService";
 import CartFooter from "./components/CartFooter";
+import { Subscription } from "rxjs/internal/Subscription";
 
 interface Props {
   isOpen: boolean;
@@ -27,11 +28,23 @@ export default function Cart({ isOpen, handleCloseCart }: Props) {
     totalQuantity: 0,
   });
 
+  const [subscription, setSubscription] = useState<Subscription>();
+
   const cartService = new CartService();
 
   useEffect(() => {
-    getCart();
-  }, [isOpen]);
+    const sub = cartService.getCart().subscribe((cart) => {
+      setCart(cart);
+    });
+
+    setSubscription(sub);
+
+    return () => {
+      if (subscription) {
+        sub.unsubscribe();
+      }
+    };
+  }, [cart]);
 
   return (
     <CartContainer className={isOpen ? "active" : ""}>
@@ -56,20 +69,10 @@ export default function Cart({ isOpen, handleCloseCart }: Props) {
   );
 
   function finishCart() {
-    cartService.finishCart().then(() => {
-      getCart();
-    });
+    cartService.finishCart();
   }
 
   function clearCart() {
-    cartService.clearCart().then(() => {
-      getCart();
-    });
-  }
-
-  function getCart() {
-    cartService.getCart().then((cart) => {
-      setCart(cart);
-    });
+    cartService.clearCart();
   }
 }
