@@ -5,7 +5,7 @@ import { removeComicsWithoutPrice } from "../utils/utils";
 import { IComic } from "../models/IComic";
 
 export default class ComicService {
-  public async getComicById(id: number): Promise<IComic | void> {
+  public async getComicById(id: number): Promise<IComic> {
     const apikey = import.meta.env.VITE_APIKEY;
     const privateApiKey = import.meta.env.VITE_PRIVATE_APIKEY;
     const timestamp = new Date().getTime();
@@ -16,7 +16,10 @@ export default class ComicService {
       `/v1/public/comics/${id}?ts=${timestamp}&apikey=${apikey}&hash=${hash}`
     );
 
-    console.log(response.data);
+    const bodyData = response.data as IGetComicsResponse;
+    const comic = bodyData.data.results[0];
+
+    return comic;
   }
 
   public async getAllComics(page: number, limit?: number): Promise<IComic[]> {

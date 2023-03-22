@@ -1,7 +1,7 @@
 import { IComic } from "../../../../shared/models/IComic";
 import {
   ComicDescription,
-  ComicInfoColumn,
+  ComicDescriptionColumn,
   SectionTitle,
 } from "../../styles/Comic.styles";
 
@@ -11,9 +11,16 @@ interface Props {
 
 export default function ComicSecondSection({ comic }: Props) {
   return (
-    <ComicInfoColumn>
-      <SectionTitle>Description</SectionTitle>
-      <ComicDescription>{comic?.description}</ComicDescription>
-    </ComicInfoColumn>
+    <>
+      <ComicDescriptionColumn>
+        <SectionTitle>FROM {comic?.series.name} SERIES</SectionTitle>
+      </ComicDescriptionColumn>
+      {comic?.description && (
+        <ComicDescriptionColumn>
+          <SectionTitle>Description</SectionTitle>
+          <ComicDescription>{comic?.description}</ComicDescription>
+        </ComicDescriptionColumn>
+      )}
+    </>
   );
 }

@@ -6,6 +6,7 @@ import {
 } from "../../styles/Store.styles";
 
 import { IComic, IPrice } from "../../../../../../shared/models/IComic";
+import { Link } from "react-router-dom";
 
 interface ComicItemProps {
   comic: IComic;
@@ -27,12 +28,14 @@ export default function ComicItem(props: ComicItemProps) {
   }
 
   return (
-    <ShopComics>
-      <ShopComicsImage
-        src={`${props.comic.thumbnail.path}.${props.comic.thumbnail.extension}`}
-      />
-      <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
-      <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>
-    </ShopComics>
+    <Link to={`comic/${props.comic.id}`}>
+      <ShopComics>
+        <ShopComicsImage
+          src={`${props.comic.thumbnail.path}.${props.comic.thumbnail.extension}`}
+        />
+        <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
+        <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>
+      </ShopComics>
+    </Link>
   );
 }

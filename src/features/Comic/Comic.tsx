@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { IComic } from "../../shared/models/IComic";
 import { Loading, PageState, Success } from "../../shared/models/PageState";
 import ComicService from "../../shared/services/ComicService";
@@ -11,12 +11,12 @@ export default function Comic() {
   const [comic, setComic] = useState<IComic>();
   const [pageState, setPageState] = useState<PageState>(new Loading());
 
+  const routeParams = useParams();
   const comicService = new ComicService();
-  const location = useLocation();
 
   useEffect(() => {
     getComic();
-  });
+  }, []);
 
   if (pageState instanceof Success) {
     return (
@@ -30,21 +30,21 @@ export default function Comic() {
   return <div>Loading...</div>;
 
   function getComic() {
-    const queryParams = new URLSearchParams(location.search);
-    const comicID = queryParams.get("comic");
+    const { id: comicID } = routeParams;
 
     if (comicID) {
       comicService
         .getComicById(+comicID)
         .then((comic) => {
           console.log(comic);
+
+          setComic(comic);
+          setPageState(new Success());
         })
         .catch((err) => {
           console.log(err);
           setPageState(new Error());
         });
-      return true;
     }
-    return false;
   }
 }

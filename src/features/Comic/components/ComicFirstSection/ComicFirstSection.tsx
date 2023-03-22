@@ -4,6 +4,7 @@ import {
   ComicInfoColumn,
   ComicTitle,
 } from "../../styles/Comic.styles";
+import BuyComic from "../BuyComic/BuyComic";
 
 interface Props {
   comic?: IComic;
@@ -14,8 +15,9 @@ export default function ComicFirstSection({ comic }: Props) {
     <ComicInfoColumn>
       <ComicTitle>{comic?.title}</ComicTitle>
       <ComicImage
-        src={`${comic?.thumbnail.extension}.${comic?.thumbnail.path}`}
+        src={`${comic?.thumbnail.path}.${comic?.thumbnail.extension}`}
       />
+      <BuyComic comicPrice={comic?.prices[0].price || 0}></BuyComic>
     </ComicInfoColumn>
   );
 }
