@@ -8,62 +8,23 @@ export const PaginatorContainer = styled.div`
   width: 100%;
   background-color: #181d20;
   padding: 10px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const PaginatorButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  padding: 10px 0;
-
-  @media (max-width: 768px) {
-    flex-direction: row;
-    padding: 5px;
-  }
-`;
-
-export const PageNumberContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  padding: 10px 0;
-
-  @media (max-width: 768px) {
-    flex-direction: row;
-    padding: 0;
-  }
 `;
 
 export const PageNumber = styled.button<{ active: boolean }>`
-  width: 50px;
-  height: 50px;
+  width: 10px;
+  height: 10px;
   margin-right: 10px;
-  background-color: ${({ active }) => (active ? "#0b0d0f" : "transparent")};
+  background-color: ${({ active }) => (active ? "red" : "#e3e2e1")};
   color: whitesmoke;
   border: none;
-  border-radius: 20%;
+  border-radius: 100%;
   cursor: pointer;
-  font-size: 2rem;
-
-  @media (max-width: 768px) {
-    width: 20px;
-    height: 35px;
-    font-size: 1.5rem;
-  }
 `;
 
 export const PaginatorButton = styled.button<{ disabled: boolean }>`
   margin-right: 10px;
   background-color: #e3e2e1;
-  color: #000;
+  color: #0b0d0f;
   border: none;
   border-radius: 20%;
   font-weight: bold;
