@@ -2,18 +2,14 @@ import styled, { keyframes } from "styled-components";
 
 export const CartWrapper = styled.div`
   position: fixed;
-  top: 0;
+  top: 5px;
   right: 0;
   bottom: 0;
   width: 300px;
   height: fit-content;
-  background-color: #181d20;
-  border-left: 2px solid #000;
   z-index: 999;
 
-  //apply shadow to the left and bottom side of the cart
-  box-shadow: -2px 0 5px 0 rgba(255, 255, 255, 0.5),
-    0 2px 5px 0 rgba(255, 255, 255, 0.5);
+  margin-right: 20px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -26,31 +22,40 @@ export const CartWrapper = styled.div`
   &.inactive {
     display: none;
   }
+`;
+
+export const CartContainer = styled.div`
+  display: fixed;
+  position: absolute;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 300px;
+  padding: 20px;
+
+  background-color: #181d20;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   &.active {
-    animation: slideIn 0.5s ease-in-out;
+    display: flex;
   }
+`;
 
-  &.inactive {
-    animation: slideOut 0.5s ease-in-out;
-  }
+export const CartTitle = styled.div`
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  flex: 1;
+  color: #fff;
 
-  @keyframes slideIn {
-    0% {
-      transform: translateX(300px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideOut {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(300px);
-    }
+  @media (max-width: 768px) {
+    font-size: 22px;
   }
 `;
 
@@ -112,39 +117,6 @@ export const CartRow = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-`;
-
-export const CartContainer = styled.div`
-  display: fixed;
-  position: absolute;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 300px;
-  padding: 20px;
-
-  background-color: #181d20;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-
-  &.active {
-    display: flex;
-  }
-`;
-
-export const CartTitle = styled.div`
-  display: flex;
-  font-size: 30px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  flex: 1;
-  color: #fff;
-
-  @media (max-width: 768px) {
-    font-size: 22px;
-  }
 `;
 
 export const CartList = styled.div`
