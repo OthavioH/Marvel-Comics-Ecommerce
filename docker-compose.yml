@@ -2,8 +2,11 @@ version: '3'
 
 services:
   web:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      image: othaviohenrico:marvelcomicsecommerce:v1
     ports:
       - "3000:3000"
     working_dir: /app
-    command: npm run serve
+    command: npm run serve    
