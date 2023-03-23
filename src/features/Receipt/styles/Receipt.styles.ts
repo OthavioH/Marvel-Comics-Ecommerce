@@ -40,7 +40,7 @@ export const ReceiptContainer = styled.div`
   }
 `;
 
-export const ReceiptHeader = styled.div`
+export const ReceiptHeaderContainer = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;

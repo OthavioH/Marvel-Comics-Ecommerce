@@ -1,11 +1,6 @@
 import {
-  ReceiptCloseButton,
   ReceiptContainer,
-  ReceiptHeader,
-  ReceiptHeaderRow,
   ReceiptList,
-  ReceiptTitle,
-  ReceiptThanksText,
   ReceiptWrapper,
   ReceiptFooter,
   ReceiptTotal,
@@ -16,6 +11,7 @@ import { useEffect, useState } from "react";
 import CartService from "../Cart/services/CartService";
 import { ICart } from "../../shared/models/ICart";
 import ReceiptComicItem from "./components/ReceiptComicItem";
+import ReceiptHeader from "./components/ReceiptHeader";
 
 export interface Props {
   isOpen: boolean;
@@ -44,15 +40,7 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
           e.stopPropagation();
         }}
       >
-        <ReceiptHeader>
-          <ReceiptHeaderRow>
-            <ReceiptTitle>Receipt</ReceiptTitle>
-            <ReceiptCloseButton onClick={finishCart}>
-              <Close fontSize="medium" />
-            </ReceiptCloseButton>
-          </ReceiptHeaderRow>
-          <ReceiptThanksText>Thank you for your purchase!</ReceiptThanksText>
-        </ReceiptHeader>
+        <ReceiptHeader finishCart={finishCart} />
         <ReceiptList>
           {cart?.comics.map((comic) => {
             return <ReceiptComicItem comic={comic} key={comic.id} />;
