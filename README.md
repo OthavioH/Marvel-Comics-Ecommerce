@@ -18,6 +18,8 @@ Depois que eu já tinha na minha cabeça como seria o layout, comecei a realment
 
 Após isso comecei a criar os componentes da forma que estou acostumado e aqui nesse projeto eu aprendi coisas também, além de outras que eu já sabia mas só havia usado em outros frameworks ou também coisas desconhecidas que acabei aprendendo no meio do caminho.
 
+Esse projeto levou 3 dias para ser realizado, porém, faltaram algumas features. Decidi não terminar essas features por conta de uma semana de prova na faculdade, mas ainda sim ele é um ótimo projeto e que foi muito bom de construir.
+
 ## Features e Pages
 - **Design responsivo em todas as páginas**
 - **Página de Listagem de HQs**
