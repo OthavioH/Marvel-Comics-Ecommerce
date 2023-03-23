@@ -11,6 +11,7 @@ export const ReceiptWrapper = styled.div`
   padding: 1rem;
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
 
   &.active {
     display: flex;
@@ -178,4 +179,22 @@ export const ReceiptList = styled.div`
     background-color: #000;
     border-radius: 10px;
   }
+`;
+
+export const ReceiptFooter = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex: 5;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px;
+`;
+
+export const ReceiptTotal = styled.p`
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: whitesmoke;
 `;

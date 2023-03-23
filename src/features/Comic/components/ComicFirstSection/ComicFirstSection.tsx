@@ -11,12 +11,16 @@ import { getImageUrl } from "../../../../shared/utils/utils";
 interface Props {
   comic?: IComic;
   handleChangeQuantity: (quantity: number) => void;
+  handleResetQuantity: () => void;
+  comicQuantity: number;
   addToCart: () => void;
 }
 
 export default function ComicFirstSection({
   comic,
   handleChangeQuantity,
+  handleResetQuantity,
+  comicQuantity,
   addToCart,
 }: Props) {
   return (
@@ -29,7 +33,9 @@ export default function ComicFirstSection({
       />
       <BuyComic
         comicPrice={comic?.prices[0].price || 0}
+        comicQuantity={comicQuantity}
         handleChangeQuantity={handleChangeQuantity}
+        handleResetQuantity={handleResetQuantity}
         addToCart={addToCart}
       ></BuyComic>
     </ComicInfoColumn>

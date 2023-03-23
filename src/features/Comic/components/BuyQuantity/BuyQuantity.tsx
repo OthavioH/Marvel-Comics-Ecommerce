@@ -8,16 +8,14 @@ import { useState } from "react";
 
 interface Prop {
   handleChangePrice: (quantity: number) => void;
+  quantity: number;
 }
 
-export default function BuyQuantity({ handleChangePrice }: Prop) {
-  const [quantity, setQuantity] = useState(1);
-
+export default function BuyQuantity({ handleChangePrice, quantity }: Prop) {
   return (
     <BuyQuantityContainer>
       <BuyQuantityButton
         onClick={() => {
-          setQuantity(quantity - 1);
           handleChangePrice(quantity - 1);
         }}
         disabled={quantity === 1}
@@ -27,7 +25,6 @@ export default function BuyQuantity({ handleChangePrice }: Prop) {
       <BuyQuantityLabel>{quantity}</BuyQuantityLabel>
       <BuyQuantityButton
         onClick={() => {
-          setQuantity(quantity + 1);
           handleChangePrice(quantity + 1);
         }}
         disabled={quantity === 10}

@@ -21,7 +21,9 @@ export default function ReceiptComicItem({ comic }: Props) {
       <ReceiptComicImage src={getImageUrl(comic.thumbnailUrl!)} />
       <ReceiptComicColumn>
         <ReceiptComicTitle>{comic.title}</ReceiptComicTitle>
-        <ReceiptComicPrice>${comic.price.toFixed(2)}</ReceiptComicPrice>
+        <ReceiptComicPrice>
+          ${(comic.price * comic.quantity).toFixed(2)}
+        </ReceiptComicPrice>
       </ReceiptComicColumn>
       <ReceiptComicQuantityContainer>
         <ReceiptComicQuantity>x{comic.quantity}</ReceiptComicQuantity>

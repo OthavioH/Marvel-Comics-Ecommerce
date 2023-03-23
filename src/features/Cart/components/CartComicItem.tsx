@@ -32,7 +32,9 @@ export default function CartComicItem({ comic }: Props) {
       <CartComicImage src={getImageUrl(comic.thumbnailUrl!)} />
       <CartComicColumn>
         <CartComicTitle>{comic.title}</CartComicTitle>
-        <CartComicPrice>${comic.price.toFixed(2)}</CartComicPrice>
+        <CartComicPrice>
+          ${(comic.price * comic.quantity).toFixed(2)}
+        </CartComicPrice>
         <CartComicRow>
           {quantity > 1 ? (
             <CartComicMinusQuantity

@@ -7,6 +7,8 @@ import {
   ReceiptTitle,
   ReceiptThanksText,
   ReceiptWrapper,
+  ReceiptFooter,
+  ReceiptTotal,
 } from "./styles/Receipt.styles";
 
 import { Close } from "@mui/icons-material";
@@ -35,7 +37,7 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
   return (
     <ReceiptWrapper
       className={isOpen ? "active" : "inactive"}
-      onClick={finishReceipt}
+      onClick={finishCart}
     >
       <ReceiptContainer
         onClick={(e) => {
@@ -45,24 +47,26 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
         <ReceiptHeader>
           <ReceiptHeaderRow>
             <ReceiptTitle>Receipt</ReceiptTitle>
-            <ReceiptCloseButton onClick={finishReceipt}>
+            <ReceiptCloseButton onClick={finishCart}>
               <Close fontSize="medium" />
             </ReceiptCloseButton>
           </ReceiptHeaderRow>
           <ReceiptThanksText>Thank you for your purchase!</ReceiptThanksText>
-          <ReceiptList>
-            {cart?.comics.map((comic) => {
-              return <ReceiptComicItem comic={comic} key={comic.id} />;
-            })}
-          </ReceiptList>
         </ReceiptHeader>
+        <ReceiptList>
+          {cart?.comics.map((comic) => {
+            return <ReceiptComicItem comic={comic} key={comic.id} />;
+          })}
+        </ReceiptList>
+        <ReceiptFooter>
+          <ReceiptTotal>Total: ${cart?.total.toFixed(2)}</ReceiptTotal>
+        </ReceiptFooter>
       </ReceiptContainer>
     </ReceiptWrapper>
   );
 
-  function finishReceipt() {
-    cartService.finishCart();
-
+  function finishCart() {
     changeReceiptState();
+    cartService.finishCart();
   }
 }

@@ -26,8 +26,10 @@ export default function Comic() {
       <ComicSection>
         <ComicFirstSection
           comic={comic}
-          handleChangeQuantity={handleChangeQuantity}
           addToCart={addToCart}
+          comicQuantity={comicQuantity}
+          handleChangeQuantity={setComicQuantity}
+          handleResetQuantity={() => setComicQuantity(1)}
         />
         <ComicSecondSection comic={comic} />
       </ComicSection>
@@ -35,10 +37,6 @@ export default function Comic() {
   }
 
   return <div>Loading...</div>;
-
-  function handleChangeQuantity(quantity: number) {
-    setComicQuantity(quantity);
-  }
 
   async function addToCart() {
     await cartService.addComicToCart(comic!, comicQuantity);
