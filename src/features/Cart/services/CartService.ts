@@ -22,6 +22,7 @@ export default class CartService {
 
   async saveCart(cart: ICart) {
     this.actualCart = cart;
+    localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cart));
     this.cartSubject.next(cart);
   }
