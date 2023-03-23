@@ -32,7 +32,6 @@ export const NavPageComponent = styled.li`
   cursor: pointer;
 
   &.active {
-    width: 150px;
     background-color: rgb(45, 53, 57);
   }
 

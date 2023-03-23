@@ -6,7 +6,7 @@ import {
   NavPageMain,
 } from "./shared/styles/Nav.styles";
 
-import { ShoppingCart } from "@mui/icons-material";
+import { ShoppingCart, Home } from "@mui/icons-material";
 
 interface Props {
   handleOpenCart: () => void;
@@ -21,10 +21,9 @@ export default function Nav({ handleOpenCart }: Props) {
       <NavPageMain>
         <Link to="/store">
           <NavPageComponent className={isStore ? "active" : ""}>
-            Home
+            <Home fontSize="large" />
           </NavPageComponent>
         </Link>
-        <NavPageComponent>HQs</NavPageComponent>
       </NavPageMain>
       <NavOpenCartButton onClick={handleOpenCart}>
         <ShoppingCart fontSize="large" />
