@@ -277,6 +277,15 @@ export const CartTotalPrice = styled.div`
   padding-bottom: 20px;
 `;
 
+export const CartFooterRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+`;
+
 export const CartFinishButton = styled.button`
   width: 40%;
   height: 40px;
@@ -288,11 +297,9 @@ export const CartFinishButton = styled.button`
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #b0443d;
-    color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 768px) {
@@ -314,8 +321,7 @@ export const CartClearButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #b0443d;
-    color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 768px) {
