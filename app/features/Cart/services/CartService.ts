@@ -45,8 +45,6 @@ export default class CartService {
       });
     } else {
       cart.comics = cart.comics.map((cartComic) => {
-        console.log(comicQuantity);
-
         if (cartComic.id === comic.id) {
           return {
             description: cartComic.description,

@@ -64,7 +64,7 @@ export const ShopComics = styled.div`
     height: 450px;
   }
 
-  @media (min-width: 2000px) {
+  @media (min-width: 1800px) {
     width: 300px;
     height: 600px;
   }

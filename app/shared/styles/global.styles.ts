@@ -14,6 +14,19 @@ export const GlobalStyles = createGlobalStyle`
         background-color: whitesmoke;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: #181d20;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #181d20;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #000;
+            border-radius: 10px;
+        }
     }
 
     html, body, #root {
