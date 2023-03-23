@@ -10,16 +10,24 @@ import {
 import { Close } from "@mui/icons-material";
 import { useState } from "react";
 
-export default function Receipt() {
-  const [isOpen, setIsOpen] = useState(false);
+export interface Props {
+  isOpen: boolean;
+  changeReceiptState: () => void;
+}
 
+export default function Receipt({ isOpen, changeReceiptState }: Props) {
   return (
-    <ReceiptWrapper className={isOpen ? "active" : "inactive"}>
-      <ReceiptContainer>
+    <ReceiptWrapper
+      className={isOpen ? "active" : "inactive"}
+      onClickCapture={(e) => {
+        changeReceiptState();
+      }}
+    >
+      <ReceiptContainer onClick={() => {}}>
         <ReceiptHeader>
           <ReceiptHeaderRow>
             <ReceiptTitle>Receipt</ReceiptTitle>
-            <ReceiptCloseButton>
+            <ReceiptCloseButton onClick={changeReceiptState}>
               <Close fontSize="medium" />
             </ReceiptCloseButton>
           </ReceiptHeaderRow>
@@ -27,8 +35,4 @@ export default function Receipt() {
       </ReceiptContainer>
     </ReceiptWrapper>
   );
-
-  function toggleReceipt() {
-    setIsOpen(!isOpen);
-  }
 }

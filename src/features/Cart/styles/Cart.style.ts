@@ -32,6 +32,7 @@ export const CartContainer = styled.div`
   align-items: flex-start;
   width: 100%;
   padding: 20px;
+  max-height: 70vh;
 
   background-color: #181d20;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -126,8 +127,22 @@ export const CartList = styled.div`
   align-items: flex-start;
   width: 100%;
   height: fit-content;
+  overflow-y: auto;
   min-height: 10rem;
+  padding: 10px;
   gap: 20px;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 10px;
+  }
 `;
 
 export const CartComic = styled.div`
@@ -137,7 +152,6 @@ export const CartComic = styled.div`
   align-items: start;
   width: 100%;
   height: fit-content;
-  min-height: 70px;
   gap: 20px;
   padding: 10px;
   border-radius: 6px;
@@ -166,6 +180,7 @@ export const CartComicRow = styled.div`
 
 export const CartComicTitle = styled.div`
   width: 100%;
+  height: fit-content;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -217,20 +232,14 @@ export const CartComicQuantityButton = styled.button`
 export const CartComicRemoveComic = styled.div`
   width: 20px;
   height: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background-color: red;
-  color: #fff;
+  color: red;
   border: none;
   border-radius: 50%;
-  background-color: red;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: darkred;
-    color: #fff;
+    color: #000;
   }
 
   @media (max-width: 768px) {
@@ -253,6 +262,7 @@ export const CartComicImage = styled.img`
   height: 50px;
   border-radius: 10px;
   background-color: #fff;
+  object-fit: cover;
 `;
 
 export const CartTotal = styled.div`

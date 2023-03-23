@@ -10,7 +10,7 @@ export const ReceiptWrapper = styled.div`
   align-items: center;
   padding: 1rem;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
 
   &.active {
     display: flex;

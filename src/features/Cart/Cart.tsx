@@ -18,10 +18,15 @@ import { Subscription } from "rxjs/internal/Subscription";
 
 interface Props {
   isOpen: boolean;
-  handleCloseCart: () => void;
+  changeCartState: () => void;
+  changeReceiptState: () => void;
 }
 
-export default function Cart({ isOpen, handleCloseCart }: Props) {
+export default function Cart({
+  isOpen,
+  changeCartState,
+  changeReceiptState,
+}: Props) {
   const [cart, setCart] = useState<ICart>({
     comics: [],
     total: 0,
@@ -40,7 +45,7 @@ export default function Cart({ isOpen, handleCloseCart }: Props) {
 
   return (
     <CartContainer className={isOpen ? "active" : ""}>
-      <CartHeader handleCloseCart={handleCloseCart} />
+      <CartHeader changeCartState={changeCartState} />
       {cart.totalQuantity > 0 ? (
         <>
           <CartList>
@@ -62,6 +67,8 @@ export default function Cart({ isOpen, handleCloseCart }: Props) {
 
   function finishCart() {
     cartService.finishCart();
+    changeReceiptState();
+    changeCartState();
   }
 
   function clearCart() {
