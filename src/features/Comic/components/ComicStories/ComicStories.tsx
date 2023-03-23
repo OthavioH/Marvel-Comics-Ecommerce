@@ -1,12 +1,11 @@
 import { IStory } from "../../../../shared/models/IStory";
+import { getImageUrl } from "../../../../shared/utils/utils";
 import {
   ComicStoriesContainer,
   ComicStory,
   ComicStoryImage,
   ComicStoryTitle,
 } from "../../styles/BuyComic.styles";
-
-import placeholderImg from "../../../../assets/images/comic_placeholder.png";
 
 interface Props {
   series?: IStory[];
@@ -19,11 +18,9 @@ export default function ComicStories({ series }: Props) {
         return (
           <ComicStory key={story.id}>
             <ComicStoryImage
-              src={`${
-                story.thumbnail
-                  ? story.thumbnail.path + "." + story.thumbnail.extension
-                  : placeholderImg
-              }`}
+              src={getImageUrl(
+                story.thumbnail.path + "." + story.thumbnail.extension
+              )}
             />
             <ComicStoryTitle>{story.title}</ComicStoryTitle>
           </ComicStory>

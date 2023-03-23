@@ -12,10 +12,10 @@ import {
 
 import { Add, Remove, Delete } from "@mui/icons-material";
 
-import placeholderImage from "../../../assets/images/comic_placeholder.png";
 import { ICartComic } from "../../../shared/models/ICartComic";
 import CartService from "../services/CartService";
 import { useState } from "react";
+import { getImageUrl } from "../../../shared/utils/utils";
 
 interface Props {
   comic: ICartComic;
@@ -28,7 +28,7 @@ export default function CartComicItem({ comic }: Props) {
 
   return (
     <CartComic>
-      <CartComicImage src={comic.thumbnailUrl ?? placeholderImage} />
+      <CartComicImage src={getImageUrl(comic.thumbnailUrl!)} />
       <CartComicColumn>
         <CartComicTitle>{comic.title}</CartComicTitle>
         <CartComicPrice>${comic.price.toFixed(2)}</CartComicPrice>

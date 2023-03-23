@@ -19,9 +19,7 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
   return (
     <ReceiptWrapper
       className={isOpen ? "active" : "inactive"}
-      onClickCapture={(e) => {
-        changeReceiptState();
-      }}
+      onClick={changeReceiptState}
     >
       <ReceiptContainer onClick={() => {}}>
         <ReceiptHeader>

@@ -261,7 +261,6 @@ export const CartComicImage = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background-color: #fff;
   object-fit: cover;
 `;
 
