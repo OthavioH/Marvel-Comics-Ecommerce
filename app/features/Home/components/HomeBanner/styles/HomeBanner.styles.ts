@@ -15,14 +15,14 @@ export const HeroBannerSection = styled.section`
   background-image: url(${homeBG});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
 
   @media (max-width: 500px) {
     background-size: 100vw 100%;
     min-height: 15rem;
   }
 
-  @media (min-width: 1400px) {
+  @media (min-width: 1800px) {
     background-image: url(${homeBG});
     background-size: 100% 50vh;
   }

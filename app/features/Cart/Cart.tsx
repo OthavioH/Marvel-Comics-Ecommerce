@@ -36,11 +36,7 @@ export default function Cart({
   const cartService = new CartService();
 
   useEffect(() => {
-    const subscription = cartService.getCart().subscribe((cart) => {
-      setCart(cart);
-    });
-
-    return () => subscription.unsubscribe();
+    updateCart();
   }, [cartService.hasCartBeenUpdated]);
 
   return (
@@ -50,7 +46,13 @@ export default function Cart({
         <>
           <CartList>
             {cart.comics.map((comic) => {
-              return <CartComicItem comic={comic} key={comic.id} />;
+              return (
+                <CartComicItem
+                  comic={comic}
+                  key={comic.id}
+                  updateCart={updateCart}
+                />
+              );
             })}
           </CartList>
           <CartFooter
@@ -65,12 +67,22 @@ export default function Cart({
     </CartContainer>
   );
 
+  function updateCart() {
+    const subscription = cartService.getCart().subscribe((cart) => {
+      setCart(cart);
+    });
+
+    return () => subscription.unsubscribe();
+  }
+
   function finishCart() {
     changeReceiptState();
     changeCartState();
+    updateCart();
   }
 
   function clearCart() {
     cartService.clearCart();
+    updateCart();
   }
 }

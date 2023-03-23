@@ -20,9 +20,10 @@ import { getImageUrl } from "../../../shared/utils/utils";
 
 interface Props {
   comic: ICartComic;
+  updateCart: () => void;
 }
 
-export default function CartComicItem({ comic }: Props) {
+export default function CartComicItem({ comic, updateCart }: Props) {
   const [quantity, setQuantity] = useState(comic.quantity);
 
   const cartService = new CartService();
@@ -58,12 +59,14 @@ export default function CartComicItem({ comic }: Props) {
     </CartComic>
   );
 
-  function changeQuantity(newQuantity: number) {
+  async function changeQuantity(newQuantity: number) {
     setQuantity(newQuantity);
-    cartService.updateComicQuantity(comic, newQuantity);
+    await cartService.updateComicQuantity(comic, newQuantity);
+    updateCart();
   }
 
   function removeComic() {
     cartService.removeComicFromCart(comic);
+    updateCart();
   }
 }
