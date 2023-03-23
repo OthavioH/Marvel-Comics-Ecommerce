@@ -66,7 +66,6 @@ export default function Cart({
   );
 
   function finishCart() {
-    cartService.finishCart();
     changeReceiptState();
     changeCartState();
   }

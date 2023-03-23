@@ -3,12 +3,17 @@ import {
   ReceiptContainer,
   ReceiptHeader,
   ReceiptHeaderRow,
+  ReceiptList,
   ReceiptTitle,
+  ReceiptThanksText,
   ReceiptWrapper,
 } from "./styles/Receipt.styles";
 
 import { Close } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CartService from "../Cart/services/CartService";
+import { ICart } from "../../shared/models/ICart";
+import ReceiptComicItem from "./components/ReceiptComicItem";
 
 export interface Props {
   isOpen: boolean;
@@ -16,10 +21,21 @@ export interface Props {
 }
 
 export default function Receipt({ isOpen, changeReceiptState }: Props) {
+  const [cart, setCart] = useState<ICart>();
+  const cartService: CartService = new CartService();
+
+  useEffect(() => {
+    const subscription = cartService.getCart().subscribe((cart) => {
+      setCart(cart);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [cartService.hasCartBeenUpdated]);
+
   return (
     <ReceiptWrapper
       className={isOpen ? "active" : "inactive"}
-      onClick={changeReceiptState}
+      onClick={finishReceipt}
     >
       <ReceiptContainer
         onClick={(e) => {
@@ -29,12 +45,24 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
         <ReceiptHeader>
           <ReceiptHeaderRow>
             <ReceiptTitle>Receipt</ReceiptTitle>
-            <ReceiptCloseButton onClick={changeReceiptState}>
+            <ReceiptCloseButton onClick={finishReceipt}>
               <Close fontSize="medium" />
             </ReceiptCloseButton>
           </ReceiptHeaderRow>
+          <ReceiptThanksText>Thank you for your purchase!</ReceiptThanksText>
+          <ReceiptList>
+            {cart?.comics.map((comic) => {
+              return <ReceiptComicItem comic={comic} key={comic.id} />;
+            })}
+          </ReceiptList>
         </ReceiptHeader>
       </ReceiptContainer>
     </ReceiptWrapper>
   );
+
+  function finishReceipt() {
+    cartService.finishCart();
+
+    changeReceiptState();
+  }
 }
