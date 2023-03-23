@@ -12,7 +12,7 @@ export default function MainContainer() {
 
   return (
     <Main>
-      <Nav isCartOpen={isCartOpen} handleOpenCart={changeCartState} />
+      <Nav handleOpenCart={changeCartState} />
       <Router />
       {isCartOpen && (
         <CartWrapper>

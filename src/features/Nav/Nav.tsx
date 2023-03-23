@@ -9,11 +9,10 @@ import {
 import { ShoppingCart } from "@mui/icons-material";
 
 interface Props {
-  isCartOpen: boolean;
   handleOpenCart: () => void;
 }
 
-export default function Nav({ isCartOpen, handleOpenCart }: Props) {
+export default function Nav({ handleOpenCart }: Props) {
   const location = useLocation();
   const isStore = location.pathname === "/store";
 
