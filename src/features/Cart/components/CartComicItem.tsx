@@ -5,9 +5,10 @@ import {
   CartComicTitle,
   CartComicPrice,
   CartComicRow,
-  CartComicQuantityButton,
+  CartComicAddQuantity,
   CartComicQuantity,
   CartComicRemoveComic,
+  CartComicMinusQuantity,
 } from "../styles/Cart.style";
 
 import { Add, Remove, Delete } from "@mui/icons-material";
@@ -34,26 +35,22 @@ export default function CartComicItem({ comic }: Props) {
         <CartComicPrice>${comic.price.toFixed(2)}</CartComicPrice>
         <CartComicRow>
           {quantity > 1 ? (
-            <CartComicQuantityButton
+            <CartComicMinusQuantity
               onClick={() => {
                 changeQuantity(quantity - 1);
               }}
-            >
-              <Remove fontSize="small" />
-            </CartComicQuantityButton>
+            ></CartComicMinusQuantity>
           ) : (
             <CartComicRemoveComic onClick={removeComic}>
               <Delete fontSize="small" />
             </CartComicRemoveComic>
           )}
           <CartComicQuantity>{quantity}</CartComicQuantity>
-          <CartComicQuantityButton
+          <CartComicAddQuantity
             onClick={() => {
               changeQuantity(quantity + 1);
             }}
-          >
-            <Add fontSize="small" />
-          </CartComicQuantityButton>
+          ></CartComicAddQuantity>
         </CartComicRow>
       </CartComicColumn>
     </CartComic>

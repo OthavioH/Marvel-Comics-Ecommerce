@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { Add, Remove } from "@mui/icons-material";
 
 export const CartWrapper = styled.div`
   position: fixed;
@@ -12,7 +13,8 @@ export const CartWrapper = styled.div`
   margin-right: 20px;
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 90%;
+    margin-right: 0;
   }
 
   &.active {
@@ -204,7 +206,32 @@ export const CartComicQuantity = styled.div`
   }
 `;
 
-export const CartComicQuantityButton = styled.button`
+export const CartComicAddQuantity = styled(Add)`
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+  }
+`;
+
+export const CartComicMinusQuantity = styled(Remove)`
   width: 20px;
   height: 20px;
   font-size: 14px;
@@ -293,6 +320,8 @@ export const CartFooterRow = styled.div`
   align-items: center;
   width: 100%;
   padding: 10px;
+
+  gap: 10px;
 `;
 
 export const CartFinishButton = styled.button`
@@ -312,7 +341,7 @@ export const CartFinishButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 50%;
   }
 `;
 
@@ -334,7 +363,7 @@ export const CartClearButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 50%;
   }
 `;
 

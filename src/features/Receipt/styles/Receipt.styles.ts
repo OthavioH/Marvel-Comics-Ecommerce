@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ReceiptWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  height: 100%;
-  position: absolute;
+  height: fit-content;
+  position: fixed;
   flex-direction: column;
   justify-content: center;
   align-items: center;
