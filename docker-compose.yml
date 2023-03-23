@@ -2,10 +2,7 @@ version: '3'
 
 services:
   web:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-      image: othaviohenrico:marvelcomicsecommerce:v1
+    build: .
     ports:
       - "3000:3000"
     working_dir: /app
