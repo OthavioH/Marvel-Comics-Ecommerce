@@ -24,9 +24,14 @@ Após isso comecei a criar os componentes da forma que estou acostumado e aqui n
 ![image](https://user-images.githubusercontent.com/46772924/227333692-31cb77ba-d153-4db8-9bce-afe85f59c523.png)
 - **Página individual da HQ**
 ![image](https://user-images.githubusercontent.com/46772924/227333897-767072eb-31f5-49e1-92be-ef8503d40766.png)
-- **Carrinho de compras**
+- **Carrinho de compras (Vazio)**
 
-![image](https://user-images.githubusercontent.com/46772924/227333770-9686c9e8-38ba-409f-8a8e-6337e5cbeb85.png) ![image](https://user-images.githubusercontent.com/46772924/227333805-3e410bcb-f6fc-49fe-92ea-3dfe37049f02.png)
+![image](https://user-images.githubusercontent.com/46772924/227333770-9686c9e8-38ba-409f-8a8e-6337e5cbeb85.png)
+
+- **Carrinho de compras (Com itens)**
+
+![image](https://user-images.githubusercontent.com/46772924/227333805-3e410bcb-f6fc-49fe-92ea-3dfe37049f02.png)
+
 - **Modal de recibo para mostrar todas as HQs compradas**
 ![image](https://user-images.githubusercontent.com/46772924/227333936-fdf901cc-6ef6-4031-afbc-b67b15d94b0c.png)
 
