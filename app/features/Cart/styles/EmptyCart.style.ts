@@ -6,12 +6,11 @@ export const EmptyCartContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 5;
-  min-width: 20rem;
-  min-height: 50rem;
+  width: 100%;
+  min-height: 20rem;
   height: fit-content;
   gap: 10px;
   padding: 10px;
-  background-color: #181d20;
 `;
 
 export const EmptyCartTitle = styled.div`
