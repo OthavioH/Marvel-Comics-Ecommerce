@@ -19,7 +19,9 @@ export default function ComicStories({ series }: Props) {
           <ComicStory key={story.id}>
             <ComicStoryImage
               src={getImageUrl(
-                story.thumbnail.path + "." + story.thumbnail.extension
+                story.thumbnail
+                  ? story.thumbnail.path + "." + story.thumbnail.extension
+                  : null
               )}
             />
             <ComicStoryTitle>{story.title}</ComicStoryTitle>

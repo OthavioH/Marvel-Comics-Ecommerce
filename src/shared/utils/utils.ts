@@ -14,9 +14,12 @@ export function removeComicsWithoutPrice(comics: IComic[]) {
   return newComics;
 }
 
-export function getImageUrl(path: string | undefined) {
-  if (path === undefined || path!.includes("image_not_available")) {
-    return placeholderImg;
+export function getImageUrl(path: string | null) {
+  if (path) {
+    if (path!.includes("image_not_available")) {
+      return placeholderImg;
+    }
+    return path;
   }
-  return path;
+  return placeholderImg;
 }

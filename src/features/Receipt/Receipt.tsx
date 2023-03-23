@@ -21,7 +21,11 @@ export default function Receipt({ isOpen, changeReceiptState }: Props) {
       className={isOpen ? "active" : "inactive"}
       onClick={changeReceiptState}
     >
-      <ReceiptContainer onClick={() => {}}>
+      <ReceiptContainer
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <ReceiptHeader>
           <ReceiptHeaderRow>
             <ReceiptTitle>Receipt</ReceiptTitle>
