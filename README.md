@@ -1,6 +1,6 @@
 # Marvel Comics E-commerce
 
-# Como acessar
+## Como acessar
 O projeto está disponível em: https://marvel-comics-ecommerce.vercel.app
 
 ## Descrição
