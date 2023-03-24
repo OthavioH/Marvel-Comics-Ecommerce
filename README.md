@@ -36,7 +36,9 @@ Esse projeto levou 3 dias para ser realizado, porém, faltaram algumas features.
 ![image](https://user-images.githubusercontent.com/46772924/227333805-3e410bcb-f6fc-49fe-92ea-3dfe37049f02.png)
 
 - **Modal de recibo para mostrar todas as HQs compradas**
+
 **OBS:** O Modal não é um componente do Material, foi feito do zero vom styled components.
+
 ![image](https://user-images.githubusercontent.com/46772924/227333936-fdf901cc-6ef6-4031-afbc-b67b15d94b0c.png)
 
 ## Libraries
