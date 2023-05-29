@@ -35,5 +35,7 @@ export const GlobalStyles = createGlobalStyle`
 
     :root {
         --primary: #101213;
+        --accent-color: #b30000;
+        --hover-accent-color: #870000;
     }
 `;

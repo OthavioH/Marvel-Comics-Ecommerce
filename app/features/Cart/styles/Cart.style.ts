@@ -81,14 +81,16 @@ export const CartCloseIcon = styled.div`
   position: relative;
 
   &.spin {
-    animation: spin 0.5s linear;
+    animation: spin 0.5s ease-in-out;
   }
 
   @keyframes spin {
     0% {
+      opacity: 0;
       transform: rotate(0deg);
     }
     100% {
+      opacity: 1;
       transform: rotate(360deg);
     }
   }

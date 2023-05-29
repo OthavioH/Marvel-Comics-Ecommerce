@@ -39,11 +39,12 @@ export const BuyComicButton = styled.button`
   font-weight: bold;
   letter-spacing: 1px;
 
-  transition: 0.2s;
+  box-shadow: 0px 2px 10px #000;
 
   &:hover {
-    background-color: #2f4847;
     color: #fff;
+    box-shadow: none;
+    background-color: #2e3838;
   }
 `;
 

@@ -13,7 +13,8 @@ export const PageNumber = styled.button<{ active: boolean }>`
   width: 10px;
   height: 10px;
   margin-right: 10px;
-  background-color: ${({ active }) => (active ? "red" : "#e3e2e1")};
+  background-color: ${({ active }) =>
+    active ? "var(--accent-color)" : "#e3e2e1"};
   color: whitesmoke;
   border: none;
   border-radius: 100%;

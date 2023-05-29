@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const FilterContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1;
   min-width: 15rem;
-  width: 100%;
-  height: fit-content;
-  background-color: #1a2025;
+  background-color: #1a1d1f;
+
+  justify-content: center;
+  align-items: center;
+
   gap: 20px;
-  padding: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
 
   @media (max-width: 500px) {
     min-width: 100%;
@@ -23,20 +27,27 @@ export const FilterButton = styled.button`
   align-items: center;
   width: 120px;
   height: 40px;
-  background-color: #e3e3e1;
-  border: none;
+  background-color: var(--accent-color);
+
+  border-color: transparent;
   border-radius: 4px;
+  box-shadow: 2px 2px 5px #101213;
+
   margin: 10px 0;
   padding: 0 10px;
   cursor: pointer;
-  transition: 0.3s;
+
   align-self: flex-end;
 
   font-size: 0.8rem;
   font-weight: 800;
-  color: #1a2025;
+  color: #fff;
   text-align: center;
   letter-spacing: 1px;
+
+  &:hover {
+    box-shadow: none;
+  }
 `;
 
 export const FilterTitle = styled.p`
@@ -74,9 +85,9 @@ export const FilterBySelect = styled.select`
 export const FilterRow = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: fit-content;
   height: fit-content;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 10px;
 `;
