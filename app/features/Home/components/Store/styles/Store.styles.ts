@@ -4,16 +4,12 @@ import styled, { keyframes } from "styled-components";
 export const StoreSection = styled.section`
   display: flex;
   min-height: 50rem;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   padding: 10px;
-  background-color: #181d20;
-
-  @media (max-width: 950px) {
-    flex-direction: column;
-    justify-content: start;
-  }
+  background-color: var(--primary);
 `;
 
 export const ShopComicsContainer = styled.div`
@@ -27,17 +23,16 @@ export const ShopComicsContainer = styled.div`
 `;
 
 export const ComicsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex: 5;
-  min-width: 20rem;
+  display: grid;
+  width: 100vw;
   height: fit-content;
-  gap: 25px;
 
-  @media (max-width: 950px) {
-    justify-content: center;
-    gap: 10px;
+  padding: 0px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
   }
 `;
 
@@ -49,25 +44,8 @@ export const ShopComicsStyledLink = styled(Link)`
 export const ShopComics = styled.div`
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 450px;
   color: whitesmoke;
   text-decoration: none;
-
-  @media (max-width: 462px) {
-    width: 150px;
-    height: 350px;
-  }
-
-  @media (min-width: 463px) and (max-width: 950px) {
-    width: 200px;
-    height: 450px;
-  }
-
-  @media (min-width: 1800px) {
-    width: 300px;
-    height: 600px;
-  }
 `;
 
 export const ShopComicsImage = styled.img`

@@ -8,7 +8,7 @@ export const ComicSection = styled.section`
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-color: #181d20;
+  background-color: var(--primary);
   color: #fff;
   flex-wrap: wrap;
 `;
@@ -57,7 +57,10 @@ export const SectionTitle = styled.div`
 
 export const ComicDescription = styled.div`
   width: 100%;
-  font-size: 16px;
+  font-size: 24px;
+  text-align: justify;
+  color: #e3e3e1;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 export const ComicImage = styled.img`

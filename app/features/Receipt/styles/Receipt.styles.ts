@@ -33,7 +33,7 @@ export const ReceiptContainer = styled.div`
   align-items: center;
   padding: 1rem;
   border-radius: 6px;
-  background-color: #181d20;
+  background-color: var(--primary);
 
   @media (max-width: 768px) {
     width: 100%;

@@ -6,7 +6,6 @@ export const PaginatorContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #181d20;
   padding: 10px;
 `;
 
@@ -14,7 +13,8 @@ export const PageNumber = styled.button<{ active: boolean }>`
   width: 10px;
   height: 10px;
   margin-right: 10px;
-  background-color: ${({ active }) => (active ? "red" : "#e3e2e1")};
+  background-color: ${({ active }) =>
+    active ? "var(--accent-color)" : "#e3e2e1"};
   color: whitesmoke;
   border: none;
   border-radius: 100%;
@@ -31,6 +31,7 @@ export const PaginatorButton = styled.button<{ disabled: boolean }>`
   cursor: pointer;
   &:disabled {
     background-color: transparent;
+    color: darkgray;
     cursor: not-allowed;
   }
 `;

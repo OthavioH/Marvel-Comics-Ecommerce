@@ -19,15 +19,15 @@ export default function Nav({ handleOpenCart }: Props) {
   return (
     <Navigator>
       <NavPageMain>
-        <Link to="/store">
-          <NavPageComponent className={isStore ? "active" : ""}>
-            <Home fontSize="large" />
-          </NavPageComponent>
-        </Link>
+        {!isStore && (
+          <Link to="/store">
+            <NavPageComponent>
+              <Home fontSize="large" />
+            </NavPageComponent>
+          </Link>
+        )}
       </NavPageMain>
-      <NavOpenCartButton onClick={handleOpenCart}>
-        <ShoppingCart fontSize="large" />
-      </NavOpenCartButton>
+      <NavOpenCartButton onClick={handleOpenCart}>CART</NavOpenCartButton>
     </Navigator>
   );
 }

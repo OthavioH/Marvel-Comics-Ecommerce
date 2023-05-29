@@ -39,11 +39,12 @@ export const BuyComicButton = styled.button`
   font-weight: bold;
   letter-spacing: 1px;
 
-  transition: 0.2s;
+  box-shadow: 0px 2px 10px #000;
 
   &:hover {
-    background-color: #2f4847;
     color: #fff;
+    box-shadow: none;
+    background-color: #2e3838;
   }
 `;
 
@@ -75,7 +76,7 @@ export const BuyQuantityButton = styled.button`
   border: none;
   border-radius: 10px;
   background-color: #e3e3e1;
-  color: #181d20;
+  color: var(--primary);
   cursor: pointer;
 
   &:disabled {

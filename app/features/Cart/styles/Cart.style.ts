@@ -36,7 +36,7 @@ export const CartContainer = styled.div`
   padding: 20px;
   max-height: 70vh;
 
-  background-color: #181d20;
+  background-color: var(--primary);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
 
@@ -81,14 +81,16 @@ export const CartCloseIcon = styled.div`
   position: relative;
 
   &.spin {
-    animation: spin 0.5s linear;
+    animation: spin 0.5s ease-in-out;
   }
 
   @keyframes spin {
     0% {
+      opacity: 0;
       transform: rotate(0deg);
     }
     100% {
+      opacity: 1;
       transform: rotate(360deg);
     }
   }
