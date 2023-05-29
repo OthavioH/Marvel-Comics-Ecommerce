@@ -36,7 +36,7 @@ export const CartContainer = styled.div`
   padding: 20px;
   max-height: 70vh;
 
-  background-color: #181d20;
+  background-color: var(--primary);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
 

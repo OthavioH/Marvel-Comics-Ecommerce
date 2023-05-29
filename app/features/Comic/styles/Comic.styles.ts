@@ -8,7 +8,7 @@ export const ComicSection = styled.section`
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-color: #181d20;
+  background-color: var(--primary);
   color: #fff;
   flex-wrap: wrap;
 `;

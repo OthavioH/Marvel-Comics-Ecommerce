@@ -47,7 +47,7 @@ export const ShopTitle = styled.div`
   border-top: 30px solid transparent;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 55px solid #181d20;
+  border-bottom: 55px solid var(--primary);
 `;
 
 export const TitleText = styled.p`

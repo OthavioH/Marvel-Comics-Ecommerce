@@ -18,17 +18,15 @@ export default function Store() {
   }, [currentPage]);
 
   return (
-    <>
+    <StoreSection>
+      <StoreFilter handleFilterChange={handleFilterChange} />
       <Paginator
         totalPages={10}
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-      <StoreSection>
-        <StoreFilter handleFilterChange={handleFilterChange} />
-        <ComicsStore filters={filters} currentPage={currentPage} />
-      </StoreSection>
-    </>
+      <ComicsStore filters={filters} currentPage={currentPage} />
+    </StoreSection>
   );
 
   function handleFilterChange(updatedFilters: IFilters) {

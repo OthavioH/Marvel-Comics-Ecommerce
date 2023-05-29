@@ -4,16 +4,11 @@ import styled, { keyframes } from "styled-components";
 export const StoreSection = styled.section`
   display: flex;
   min-height: 50rem;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: start;
   gap: 10px;
   padding: 10px;
-  background-color: #181d20;
-
-  @media (max-width: 950px) {
-    flex-direction: column;
-    justify-content: start;
-  }
+  background-color: var(--primary);
 `;
 
 export const ShopComicsContainer = styled.div`

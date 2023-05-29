@@ -4,7 +4,7 @@ export const Navigator = styled.nav`
   display: flex;
   width: 100%;
   height: 75px;
-  background-color: #181d20;
+  background-color: var(--primary);
   padding: 0px 15px;
 `;
 

@@ -75,7 +75,7 @@ export const BuyQuantityButton = styled.button`
   border: none;
   border-radius: 10px;
   background-color: #e3e3e1;
-  color: #181d20;
+  color: var(--primary);
   cursor: pointer;
 
   &:disabled {
