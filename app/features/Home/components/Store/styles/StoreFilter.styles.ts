@@ -4,7 +4,7 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
-  min-width: 15rem;
+  width: fit-content;
   background-color: #1a1d1f;
 
   justify-content: center;
@@ -14,10 +14,7 @@ export const FilterContainer = styled.div`
   padding: 20px;
   margin-top: 10px;
   border-radius: 10px;
-
-  @media (max-width: 500px) {
-    min-width: 100%;
-  }
+  flex-wrap: wrap;
 `;
 
 export const FilterButton = styled.button`
