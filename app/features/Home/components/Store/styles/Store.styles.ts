@@ -8,7 +8,7 @@ export const StoreSection = styled.section`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  padding: 10px 0;
   background-color: var(--primary);
 `;
 
@@ -17,7 +17,7 @@ export const ShopComicsContainer = styled.div`
   flex-direction: column;
   flex: 5;
   min-width: 20rem;
-  height: fit-content;
+  height: 100%;
   gap: 25px;
   padding: 10px;
 `;
@@ -25,14 +25,15 @@ export const ShopComicsContainer = styled.div`
 export const ComicsContainer = styled.div`
   display: grid;
   width: 100vw;
-  height: fit-content;
+  height: 100%;
 
   padding: 0px 20px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
 
   @media (min-width: 1400px) {
-    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 50px;
   }
 `;
 
@@ -43,17 +44,24 @@ export const ShopComicsStyledLink = styled(Link)`
 
 export const ShopComics = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
-  color: whitesmoke;
+  background-color: #16181a;
+  color: #fff;
   text-decoration: none;
+
+  box-shadow: 2px 2px 10px #000;
+  border-radius: 10px;
 `;
 
 export const ShopComicsImage = styled.img`
   width: 100%;
-  height: 80%;
-  background-color: #0b0d0f;
-  border-radius: 10px;
-  object-fit: cover;
+  height: 20rem;
+  background-color: none;
+  object-fit: fill;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 const shine = keyframes`
@@ -67,34 +75,36 @@ const shine = keyframes`
 
 export const LoadingShopComicsImage = styled.img`
   width: 100%;
-  height: 80%;
+  height: 20rem;
   border-radius: 10px;
   content: "";
-  width: 100%;
-  height: 200%;
   background-color: rgba(255, 255, 255, 0.4);
   animation: ${shine} 1s linear infinite;
 `;
 
 export const ShopComicsTitle = styled.p`
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: whitesmoke;
+  font-size: 1.8rem;
+  font-weight: 100;
+  color: #fff;
   text-align: center;
   margin: 2px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: break-spaces;
+
+  padding: 0px 20px;
 
   @media (min-width: 1920px) {
     font-size: 2rem;
   }
+
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const ShopComicsPrice = styled.p`
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 600;
-  color: whitesmoke;
+  color: #fff;
   text-align: center;
   margin: 10px 0;
 

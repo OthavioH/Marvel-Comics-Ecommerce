@@ -10,7 +10,7 @@ export default function LoadingComicsStore() {
   return (
     <ComicsContainer>
       {[...Array(10)].map((_, index) => (
-        <ShopComics key={index}>
+        <ShopComics key={index} style={{ backgroundColor: "transparent" }}>
           <LoadingShopComicsImage />
         </ShopComics>
       ))}

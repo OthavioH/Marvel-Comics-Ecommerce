@@ -1,7 +1,7 @@
 import { api } from "../../config/axios";
 import { IGetComicsResponse } from "../models/IGetComicsResponse";
 import { MD5 } from "crypto-js";
-import { removeComicsWithoutPrice } from "../utils/utils";
+import { removeComicsWithoutPrice, removeEqualComics } from "../utils/utils";
 import { IComic } from "../models/IComic";
 import { IStory } from "../models/IStory";
 import { IGetComicSeriesResponse } from "../models/IGetSeriesResponse";
@@ -35,30 +35,46 @@ export default class ComicService {
   public async getAllComics(page: number, limit?: number): Promise<IComic[]> {
     const defaultLimit = limit ?? 10;
 
-    const actualLimit = defaultLimit * page;
-
     const response = await api.get(
-      `/v1/public/comics?format=comic&formatType=digital comic&noVariants=true&hasDigitalIssue=false&limit=${actualLimit}&offset=${
-        10 * (page - 1)
-      }&ts=${this.timestamp}&apikey=${this.apikey}&hash=${this.hash}`
+      this.getAllComicsRequest(page, defaultLimit)
     );
 
     const bodyData = response.data as IGetComicsResponse;
-    const comics = bodyData.data.results;
+    const comics = removeComicsWithoutPrice(bodyData.data.results);
 
-    const comicsWithPriceLength = removeComicsWithoutPrice(comics).length;
+    let validComicsLength = comics.length;
+    let newPage = page;
 
-    if (comicsWithPriceLength < actualLimit) {
-      const newPage = page + 1;
-      const newLimit = actualLimit - comicsWithPriceLength;
-      const newComics = await this.getAllComics(newPage, newLimit);
+    while (validComicsLength < defaultLimit) {
+      newPage++;
 
-      const allComics = [...comics, ...newComics];
+      const newResponse = await api.get(
+        this.getAllComicsRequest(newPage, defaultLimit)
+      );
 
-      return allComics;
+      const newComics = newResponse.data.data.results as IComic[];
+
+      const newComicsFiltered = removeComicsWithoutPrice(newComics);
+
+      const removedClones = removeEqualComics(newComicsFiltered);
+
+      const validComics = removedClones.slice(
+        0,
+        defaultLimit - validComicsLength
+      );
+
+      comics.push(...validComics);
+
+      validComicsLength = comics.length;
     }
 
-    return bodyData.data.results;
+    return comics;
+  }
+
+  getAllComicsRequest(page: number, limit: number) {
+    return `/v1/public/comics?format=comic&formatType=digital comic&noVariants=true&hasDigitalIssue=false&limit=${limit}&offset=${
+      10 * (page - 1)
+    }&ts=${this.timestamp}&apikey=${this.apikey}&hash=${this.hash}`;
   }
 
   public async getComicSeries(id: number): Promise<IStory[]> {
