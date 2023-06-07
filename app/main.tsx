@@ -7,11 +7,11 @@ import { GlobalFonts } from "./shared/styles/fonts";
 import { GlobalStyles } from "./shared/styles/global.styles";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  <>
     <GlobalFonts />
     <GlobalStyles />
     <BrowserRouter>
       <MainContainer />
     </BrowserRouter>
-  </React.StrictMode>
+  </>
 );

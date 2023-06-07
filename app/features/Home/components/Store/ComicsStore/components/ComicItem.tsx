@@ -37,7 +37,7 @@ export default function ComicItem(props: ComicItemProps) {
           )}
         />
         <ShopComicsTitle>{props.comic.title}</ShopComicsTitle>
-        <ShopComicsPrice>Price: ${+price.price}</ShopComicsPrice>
+        <ShopComicsPrice>${+price.price}</ShopComicsPrice>
       </ShopComics>
     </ShopComicsStyledLink>
   );
